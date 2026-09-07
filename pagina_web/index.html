@@ -2,6 +2,10 @@
 <html>
 <!--Tendra la cabezera-->
 <head>
+    <!-- indexsar la pagina y seguir los enlaces -->
+    <meta name="robots" content ="index, follow">
+    <!-- codificacion de los datos -->
+    <meta charset="uft-8">
     <!--Nombre de la pagina-->
     <title>Cibercafé Nova</title>
     <!-- el ancho de la pantalla sea adaptable al dispositivo-->
@@ -60,46 +64,42 @@
 
     <!--Pie de la página-->
     <footer>
-        <div>
         <form method="post" action="/">
-        <fieldset>
-            <legend>Acesso administrativo</legend>
-            <label>
+            <fieldset>
+                <legend><h4>Acesso administrativo</h4></legend>
+                <label>
+                    <input
+                    type="email"
+                    name="email"
+                    placeholder="Correo"
+                    required>
+                </label>
+                <label>
+                    <input
+                    type="password"
+                    name="pasword"
+                    placeholder="Contraseña"
+                    required>
+                </label>
+                <p></p>
                 <div>
-                <input
-                type="email"
-                name="email"
-                placeholder="Correo"
-                required>
-            </label>
-            </div>
-            <div>
-            <label>
-                <input
-                type="password"
-                name="pasword"
-                placeholder="Contraseña"
-                required>
-            </label>
-            </div>
-            <div>
-                <label for="terms">¿Acepta los términos?</label>
-                <input type="checkbox" id="terms" name="terms" required>
-            </div>
-        </fieldset>
-        <!--Boton ingresar-->
-        <button>Ingresar</button>
+                    <label for="terms">¿Acepta los términos?</label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                </div>
+                <p></p>
+            </fieldset>
+            <!--Boton ingresar-->
+            <button>Ingresar</button>
         </form>
-        </div>
         <!--Datos de contacto-->
-        <div>
-        <h4>Contactos</h4>
-        </div>
+        <header>
+            <h4>Contactos</h4>
+        </header>
         <p>Correo:
-        <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
+            <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
         </p>
         <p>Telefono:
-        <a href="+56952305515">+56 9 5230 5515</a>
+            <a href="+56952305515">+56 9 5230 5515</a>
         </p>
         <div>
             Copyright  @ 2026 - Cibercafé Nova
