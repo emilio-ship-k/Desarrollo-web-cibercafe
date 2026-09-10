@@ -2,34 +2,34 @@
 <html>
 <!--Tendra la cabezera-->
 <head>
-    <!-- indexsar la pagina y seguir los enlaces -->
-    <meta name="robots" content ="index, follow">
-    <!-- codificacion de los datos -->
-    <meta charset="uft-8">
+    <meta charset="UTF-8">
     <!--Nombre de la pagina-->
     <title>Cibercafé Nova</title>
     <!-- el ancho de la pantalla sea adaptable al dispositivo-->
     <meta name="viewport" content="width=device-width">
     <!--Descripcion de la página-->
     <meta name="description" content="Cibercafé descripcion">
-    <!-- estilo pagina web -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
 </head>
 
 <!--Cuerpo de la página-->
 <body>
     <!--Barra de navegacion a futuro con el css-->
     <section>
-        <header>
+        <header class="barra">
             <nav>
-                <h1>Cibercafé Nov</h1>
-                <img src="images/Dummy.jpeg" alt="Logo" class="logo">
-                <ul>
-                    <a href="#operativo"><li>Operativos</li></a>
-                    <a href="#"><li>Salas</li></a>
-                    <a href="#"><li>Detalles</li></a>
-                    <a href="#"><li>Sección</li></a>
-                </ul>
+                <img src="images/Dummy.jpeg" 
+                alt="logo" 
+                weidth="100"
+                height="100">
+                <div class="encab">
+                    <a href="#operativo">Operativos</a>
+                    <a href="#">Salas</a>
+                    <a href="#">Detalles</a>
+                    <a href="#">Sección</a>
+                    <a href="#contacto">Contactos</a>
+                </div>
             </nav>
         </header>
     </section>
@@ -39,7 +39,7 @@
         <section id="operativo">
             <article>
                 <header>
-                    <h2>Panel Operativo</h2>
+                    <h1>Panel Operativo</h1>
                 </header>
             </article>
         </section>
@@ -57,42 +57,55 @@
 
     <!--Pie de la página-->
     <footer>
-        <form method="post" action="/">
-            <fieldset>
-                <legend><h4>Acesso administrativo</h4></legend>
-                <label>
+        <div class="login_1">
+            <form>
+                <h4>Acesso administrativo</h4>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input
+                    type="text"
+                    name="text"
+                    placeholder="User"
+                    required>
+                </div>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
                     <input
                     type="email"
                     name="email"
                     placeholder="Correo"
                     required>
-                </label>
-                <label>
+                </div>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
                     <input
                     type="password"
                     name="pasword"
                     placeholder="Contraseña"
                     required>
-                </label>
-                <p></p>
-                <div>
+                </div>
+                <div class="terminos">
                     <label for="terms">¿Acepta los términos?</label>
                     <input type="checkbox" id="terms" name="terms" required>
                 </div>
-                <p></p>
-            </fieldset>
-            <!--Boton ingresar-->
-            <button>Ingresar</button>
-        </form>
+                <!--Boton ingresar-->
+                <div class="button">
+                    <button>Ingresar</button>
+                </div>
+            </form>
+        </div>
+
         <!--Datos de contacto-->
-        <header>
-            <h4>Contactos</h4>
-        </header>
+        <div>
+            <header id="contacto">
+                <h4>Contactos</h4>
+            </header>
+        </div>
         <p>Correo:
-            <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
+        <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
         </p>
         <p>Telefono:
-            <a href="+56952305515">+56 9 5230 5515</a>
+        <a href="+56952305515">+56 9 5230 5515</a>
         </p>
         <div>
             Copyright  @ 2026 - Cibercafé Nova
