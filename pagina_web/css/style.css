@@ -62,10 +62,8 @@ nav img {
 /**/
 .login_1
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+    padding: 20px;
+    border: none;
 }
 /*Cuadrito color celeste*/
 .login_1 form
