@@ -142,3 +142,16 @@ button {
 button:hover {
     transform: scale(1.05);
 }
+.puestos {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.puesto {
+    background-color: rgb(115, 185, 181);
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
