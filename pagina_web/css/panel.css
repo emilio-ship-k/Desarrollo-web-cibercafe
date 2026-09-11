@@ -59,3 +59,23 @@ nav img {
 }
 
 /*Apariencia del panel*/
+#flexbox_resumen{
+    display: flex;
+    gap: 15px;
+}
+
+.resum{
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.resum h3{
+    font-size: 17px;
+}
+
+.resum p{
+    font-size: 40px;
+}
