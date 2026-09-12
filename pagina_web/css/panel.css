@@ -1,0 +1,177 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'system-ui';
+}
+
+/*Color del cuerpo*/
+body {
+    background-color: rgb(89, 88, 88);
+}
+/*Color de la barra*/
+.barra {
+    background-color: rgb(52, 33, 33);
+}
+
+/*la forma de la barra de navegacion*/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+/*Logo de la pagina*/
+nav img {
+    width: 100px;
+}
+/*La separacion de los links*/
+.encab {
+    display: flex;
+    gap: 40px;
+}
+/*Apariencia de los links*/
+.encab a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+/*Color a pasar el ratón por encima*/
+.encab a:hover {
+    border-bottom: 2px solid black;
+}
+/*Apariencia de la barra cuando se comprime la pagina*/
+@media (max-width: 430px)
+{
+    nav {
+        flex-direction: column;
+    }
+    nav .encab {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: center;
+    }
+    nav img{
+        width: 50px;
+    }
+}
+
+/*Apariencia del panel*/
+#flexbox_resumen{
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 20px 0 20px 0;
+}
+/*flexbox de disponibilidad general*/
+.resum{
+    background-color: white;
+    width: 200px;
+    height: 100px;
+    border-radius: 15px;
+    border: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.resum h4{
+    font-size: 17px;
+    color: rgb(112, 107, 107);
+}
+
+.resum p{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.verde{color: green;}
+.rojo{color: red;}
+.tomate{color: tomato;}
+
+h3 {text-align: center;}
+
+/*Separacion de la pagina*/
+.centro{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    /*Evita que la columna se deslice para abajo*/
+    align-items: start;
+    margin: 0 30px 500px 30px;
+}
+
+/*Panel de disponibilidad*/
+.panel{
+    background-color: white;
+    padding: 22px;
+    border-radius: 15px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.panel h3{
+    text-align: start;
+    font-size: 17px;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+}
+
+table{
+    width: 100%;
+    /*Eliminar espacio de separación*/
+    border-collapse: collapse;
+    font-size: 14px;
+}
+th, td{
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid gray;
+}
+th{
+    color: gray;
+    font-weight: bold;
+}
+
+.badge{
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 10px;
+}
+
+.activa{
+    background-color: rgb(232, 157, 157);
+    color: rgb(113, 29, 29);
+}
+
+.modal{
+    background-color: rgb(214, 214, 32);
+    color: rgb(132, 79, 25);
+}
+
+/*Lista de indicencia*/
+.list_incid{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item_incid{
+    border-left: 4px solid rgb(233, 100, 100);
+    background: rgb(235, 209, 209);
+}
+.item_incid strong{
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(214, 0, 0);
+}

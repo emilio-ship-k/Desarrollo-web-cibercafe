@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<!--Tendra la cabezera-->
+<head>
+    <meta charset="UTF-8">
+    <!--Nombre de la pagina-->
+    <title>Cibercafé Nova</title>
+    <!-- el ancho de la pantalla sea adaptable al dispositivo-->
+    <meta name="viewport" content="width=device-width">
+    <!--Descripcion de la página-->
+    <meta name="description" content="Cibercafé descripcion">
+    <link rel="stylesheet" href="/css/panel.css">
+    <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
+</head>
+
+<!--Cuerpo de la página-->
+<body>
+    <!--Barra de navegacion a futuro con el css-->
+    <section>
+        <header class="barra">
+            <nav>
+                <img src="images/Dummy.jpeg"alt="logo"class="logo">
+                <div class="encab">
+                    <a href="#operativo">Operativos</a>
+                    <a href="#">Salas</a>
+                    <a href="#">Detalles</a>
+                    <a href="#">Sección</a>
+                    <a href="#contacto">Contactos</a>
+                </div>
+            </nav>
+        </header>
+    </section>
+    <!--Contenido principal-->
+    <main>
+        <header><h1>Panel Operativo</h1></header>
+        <!--Resumen disponibilidad-->
+        <h3>Disponibilidad general</h3>
+        <section id="flexbox_resumen">
+            <article class="resum">
+                <h4>Disponible</h4>
+                <p class="verde">11</p>
+            </article>
+            <article class="resum">
+                <h4>Sesiones <br>de uso</h4>
+                <p class="rojo">10</p>
+            </article>
+            <article class="resum">
+                <h4>Reserva Próxima</h4>
+                <p class="tomate">7</p>
+            </article>
+            <article class="resum">
+                <h4>Fuera de servicio</h4>
+                <p>3</p>
+            </article>
+        </section>
+
+        <!--Seccion de Salas y puesto-->
+        <div class="centro">
+            <div>
+                <section class="panel">
+                    <!--*Tabla de disponibilidad dia-->
+                    <h3>Disponibilidad general (En curso)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Puesto</th>
+                                <th>Cliente</th>
+                                <th>Inicio</th>
+                                <th>Tiempo Usado</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!--strong para colocar en negrita-->
+                                <td><strong>Pc 02</strong> (general)</td>
+                                <td>Sebastián Quezada</td>
+                                <td>16:15</td>
+                                <td>45 min</td>
+                                <td><span class="badge activa">En uso</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pc 16</strong> (Gamer)</td>
+                                <td>Diego Ibarra</td>
+                                <td>15:30</td>
+                                <td>1 h 30 min</td>
+                                <td><span class="badge activa">En uso</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pc 23</strong> (Grupal)</td>
+                                <td>Jonathan Nuñez</td>
+                                <td>15:30</td>
+                                <td>1 h 30 min</td>
+                                <td><span class="badge activa">En uso</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+                    <!--*Tabla de reservas futuras-->
+                <section class="panel">
+                    <h3>Próximas Reserva de la Jornada</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Horario</th>
+                                <th>Puesto Asignado</th>
+                                <th>Cliente</th>
+                                <th>Modalidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>18:00-20:00</td>
+                                <td><strong>Pc 08</strong> (General)</td>
+                                <td>Sebastián Quezada</td>
+                                <td><span class="badge modal">Individual</span></td>
+                            </tr>
+                            <tr>
+                                <td>19:00-21:00</td>
+                                <td><strong>Pc 19</strong> (Gamer)</td>
+                                <td>Jonathan Nuñez</td>
+                                <td><span class="badge modal">Grupo</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <section class="panel">
+                <h3>Indicendias</h3>
+                <ul class="list_incid">
+                    <li class="item_incid">
+                        <strong>Pc 05 - Zona general</strong>
+                        <p>Falla en tarjeta gráfica. Equipo bloquedo temporalmente</p>
+                    </li>
+                    <li class="item_incid">
+                        <strong>Pc 22 - Zona Gamer</strong>
+                        <p>Teclado mecánico con tecla espaciadora bloqueda. Requiere cambio de repuesto.</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!--Pie de la página-->
+    <footer>
+        <!--Datos de contacto-->
+        <div>
+            <header id="contacto">
+                <h4>Contactos</h4>
+            </header>
+        </div>
+        <p>Correo:
+        <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
+        </p>
+        <p>Telefono:
+        <a href="+56952305515">+56 9 5230 5515</a>
+        </p>
+        <div>
+            Copyright  @ 2026 - Cibercafé Nova
+        </div>
+    </footer>
+</body>
+
+</html>
