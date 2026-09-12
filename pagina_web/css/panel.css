@@ -101,6 +101,7 @@ h3 {text-align: center;}
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 25px;
+    margin-bottom: 500px;
 }
 
 /*Panel de disponibilidad*/
@@ -109,6 +110,7 @@ h3 {text-align: center;}
     padding: 22px;
     border-radius: 15px;
     border: 2px solid black;
+    margin-bottom: 20px;
 }
 
 .panel h3{
@@ -151,4 +153,9 @@ th{
 .modal{
     background-color: rgb(214, 214, 32);
     color: rgb(132, 79, 25);
+}
+
+/*Lista de indicencia*/
+.incidente{
+    
 }
