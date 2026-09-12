@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width">
     <!--Descripcion de la página-->
     <meta name="description" content="Cibercafé descripcion">
+    <!-- indexsar la pagina y seguir los enlaces -->
+    <meta name="robots" content ="index, follow">
+    <!--cual es la pagina principál del sitio-->
+    <link rel="canonical" href="index.html">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
 </head>
@@ -21,11 +25,8 @@
             <nav>
                 <img src="images/Dummy.jpeg"alt="logo"class="logo">
                 <div class="encab">
-                    <a href="#operativo" title="Operativos">Operativos</a>
-                    <a href="#" title="Salas">Salas</a>
-                    <a href="detalles.html" title="Detalles">Detalles</a>
-                    <a href="#" title="Sección">Sección</a>
-                    <a href="#contacto" title="Contactos">Contactos</a>
+                    <a href="/panel.html" title="Operativos">Operativos</a>
+                    <a href="/salas.html" title="Salas">Salas</a>
                 </div>
             </nav>
         </header>
@@ -33,25 +34,38 @@
     <!--Contenido principal-->
     <main>
         <!--Parrafo de bienvenida-->
-        <section>
-            <p1>
-                <h1>Bienvenido a Cibercafé Nova</h1>
-                <p>En Cibercafé Nova, nos enorgullece ofrecer un espacio acogedor y moderno para que nuestros clientes disfruten de una experiencia única. Nuestro objetivo es brindar un ambiente cómodo y seguro donde puedas conectarte, trabajar o simplemente relajarte mientras disfrutas de nuestros servicios.</p>
-                <p>Contamos con una amplia variedad de salas y puestos equipados con tecnología de última generación, ideales para reuniones, estudio o entretenimiento. Nuestro personal capacitado está siempre disponible para ayudarte y asegurarse de que tu visita sea placentera.</p>
-                <p>Además, ofrecemos acceso a internet de alta velocidad, impresoras, escáneres y otros servicios que facilitan tu trabajo o estudio. En Cibercafé Nova, nos esforzamos por crear un lugar donde la productividad y la comodidad se encuentren en perfecta armonía.</p>
-            </p1>
+        <section class="presentacion">
+            <h1>Bienvenido a Cibercafé Nova</h1>
+            <p>En Cibercafé Nova, nos enorgullece ofrecer un espacio acogedor 
+                y moderno para que nuestros clientes disfruten de una experiencia única. 
+                Nuestro objetivo es brindar un ambiente cómodo y seguro donde puedas 
+                conectarte, trabajar o simplemente relajarte mientras disfrutas de nuestros servicios.</p>
+            <p>Contamos con una amplia variedad de salas y puestos equipados con tecnología de última generación, 
+                ideales para reuniones, estudio o entretenimiento. Nuestro personal capacitado está siempre 
+                disponible para ayudarte y asegurarse de que tu visita sea placentera.</p>
+            <p>Además, ofrecemos acceso a internet de alta velocidad, impresoras, escáneres y otros servicios que 
+                facilitan tu trabajo o estudio. En Cibercafé Nova, nos esforzamos por crear un lugar donde la productividad 
+                y la comodidad se encuentren en perfecta armonía.</p>
         </section>
         <!--Seccion de panel operativo-->
-        <section id="operativo">
-            <article>
-                <header>
-                    <h1>Panel Operativo</h1>
-                </header>
-            </article>
+        <section class="detalles">
+            <h2>Sistema de Gestión y Operaciones</h2>
+            <p>Accede a los módulos del local para monitorear turnos, 
+                consultar salas o revisar especificaciones técnicas.</p>
         </section>
 
         <!--Seccion de Salas y puesto-->
-        <section>
+        <section class="secciones">
+
+            <article class="box">
+                <div>
+                    <h3>Panel Operativo</h3>
+                    <p>Monitorea la disponibilidad general en tiempo real, 
+                        las sesiones en curso, el calendario de próximas reservas y
+                        los incidentes abiertos del local.</p>
+                </div>
+                <a href="panel.html">Entrar al panel -></a>
+            </article>
 
         </section>
 

@@ -7,7 +7,7 @@
 
 /*Color del cuerpo*/
 body {
-    background-color: rgb(249, 248, 248);
+    background-color: rgb(109, 107, 107);
 }
 /*Color de la barra*/
 .barra {
@@ -155,4 +155,20 @@ button:hover {
 }
 p {
     color : white;
+}
+
+/*Decoración presentación*/
+main{
+    padding: 20px 20px 60px;
+}
+
+.presentacion h1{
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.presentacion p{
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
