@@ -68,7 +68,7 @@ nav img {
 /*Cuadrito color celeste*/
 .login_1 form
 {
-    background-color: rgb(115, 185, 181);
+    background-color: rgb(201, 206, 206);
     padding: 25px;
     border-radius: 5px;
 }
@@ -78,25 +78,25 @@ nav img {
     text-align: center;
     margin-bottom: 20px;
     font-size: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 /*Simbolo de posición*/
-.login_1 form .input-wrapper {
+.input-wrapper {
     position: relative;
 }
 /*Tamaño de los recuedros*/
-.login_1 form .input-wrapper input {
+.input-wrapper input {
     padding: 12px 0px 12px 50px;
     margin-bottom: 15px;
     outline: none;
     font-size: 15px;
 }
 /*El escalado de los simbolos*/
-.login_1 form .input-wrapper:focus-within i{
+.input-wrapper:focus-within i{
     transform: scale(1.1);
 }
 /*Posicion de los simbolos*/
-.login_1 form .input-wrapper i {
+.input-wrapper i {
     position: absolute;
     margin-left: 20px;
     top: 14px;
@@ -105,7 +105,7 @@ nav img {
     transition: .3s ease-in;
 }
 /*Tamaño de los terminos*/
-.login_1 form .terminos
+.terminos
 {
     display: flex;
     gap: 15px;
@@ -127,10 +127,10 @@ nav img {
 }
 /*Apariencia del boton ingresar*/
 button {
-    padding: 10px 0;
+    padding: 10px 10px;
     font-size: 15px;
     border-radius: 5px;
-    background-color: rgb(42, 182, 175);
+    background-color: rgb(50, 187, 208);
     border: none;
     cursor: pointer;
     font-weight: bold;
@@ -157,6 +157,14 @@ p {
     color : white;
 }
 
+.log{
+    background-color: rgb(245, 77, 77);
+    color: whitesmoke;
+    padding: 16px 16px;
+    font-size: 16px;
+
+}
+
 /*Decoración palabras*/
 main{
     padding: 20px 20px 60px;
@@ -165,6 +173,7 @@ main{
 .presentacion h1{
     font-size: 32px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .presentacion p{
@@ -176,6 +185,7 @@ main{
 .detalles h2{
     font-size: 26px;
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .detalles p{
@@ -185,16 +195,16 @@ main{
 
 /*Secciones de box*/
 .secciones{
-    display: grid;
+    display: flex;
+    flex-wrap: wrap-reverse;
     gap: 25px;
     text-align: left;
-    grid-template-columns: 3fr;
-
-    align-items: start;
-
+    margin-top: 30px;
+    margin-bottom: 300px;
 }
 
 .box{
+    flex: 1 1 280px;
     background: white;
     padding: 25px;
     border-radius: 14px;
@@ -231,4 +241,32 @@ main{
 
 .box a:hover{
     background-color: rgb(81, 80, 80);
+}
+
+/*Pie de pagina decoración*/
+footer{
+    background: rgb(47, 46, 46);
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+footer div{
+    margin-left: 30px;
+}
+footer h4{
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+footer p{
+    font-weight: bold;
+}
+footer p a{
+    text-decoration: none;
+    color: purple;
+}
+
+.cr{
+    margin-top: 10px;
+    font-weight: normal;
 }

@@ -28,6 +28,47 @@
                     <a href="/panel.html" title="Operativos">Operativos</a>
                     <a href="/salas.html" title="Salas">Salas</a>
                 </div>
+                <!--Boton ingresar a inicio de sesión-->
+        <button class="log" popovertarget="popup_login">Login</button>
+        <div class="login_1" id="popup_login" popover>
+            <form>
+                <h4>Acesso Administrativo</h4>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input
+                    type="text"
+                    name="text"
+                    placeholder="User"
+                    required>
+                </div>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input
+                    type="email"
+                    name="email"
+                    placeholder="Correo"
+                    required>
+                </div>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input
+                    type="password"
+                    name="pasword"
+                    placeholder="Contraseña"
+                    required>
+                </div>
+                <div class="terminos">
+                    <label for="terms">¿Acepta los términos?</label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                </div>
+                <!--Boton ingresar-->
+                <div class="button">
+                    <button>Ingresar</button>
+                </div>
+            </form>
+            <!--Boton cerrar pop up -->
+            <button type="button" popovertarget="popup_login" popovertargetaction="hide">Cerrar</button>
+        </div>
             </nav>
         </header>
     </section>
@@ -67,72 +108,39 @@
                 <a href="panel.html">Entrar al panel -></a>
             </article>
 
-        </section>
+            <article class="box">
+                <div>
+                    <h3>Salas y Puesto</h3>
+                    <p>Visualiza el mapa de distribución de los 30 computadores
+                        repartidos entre la Zona General, la Zona Gamer y Sala Grupal</p>
+                </div>
+                <a href="salas.html">Entrar al panel -></a>
+            </article>
 
-        <!--Detalle del computador-->
-        <section>
-
+            <article class="box">
+                <div>
+                    <h3>Detalle del equipo</h3>
+                    <p>Consulta la planilla técnica de los componente del computador
+                        (CPU,GPU,RAM), turnos activos y alertas técnicas asociadas.
+                    </p>
+                </div>
+                <a href="detalles.html">Entrar al panel -></a>
+            </article>
         </section>
     </main>
 
     <!--Pie de la página-->
     <footer>
-        <!--Boton ingresar a inicio de sesión-->
-        <button popovertarget="popup_login">Acceso Administrativo</button>
-        <div class="login_1" id="popup_login" popover>
-            <form>
-                <h4>Acesso administrativo</h4>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-user"></i>
-                    <input
-                    type="text"
-                    name="text"
-                    placeholder="User"
-                    required>
-                </div>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input
-                    type="email"
-                    name="email"
-                    placeholder="Correo"
-                    required>
-                </div>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-lock"></i>
-                    <input
-                    type="password"
-                    name="pasword"
-                    placeholder="Contraseña"
-                    required>
-                </div>
-                <div class="terminos">
-                    <label for="terms">¿Acepta los términos?</label>
-                    <input type="checkbox" id="terms" name="terms" required>
-                </div>
-                <!--Boton ingresar-->
-                <div class="button">
-                    <button>Ingresar</button>
-                </div>
-            </form>
-            <!--Boton cerrar pop up -->
-            <button type="button" popovertarget="popup_login" popovertargetaction="hide">Cerrar</button>
-        </div>
-
         <!--Datos de contacto-->
         <div>
-            <header id="contacto">
-                <h4>Contactos</h4>
-            </header>
-        </div>
-        <p>Correo:
-        <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
-        </p>
-        <p>Telefono:
-        <a href="+56952305515">+56 9 5230 5515</a>
-        </p>
-        <div>
-            Copyright  @ 2026 - Cibercafé Nova
+            <h4>Contactos</h4>
+            <p>Correo:
+            <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
+            </p>
+            <p>Telefono:
+            <a href="+56952305515">+56 9 5230 5515</a>
+            </p>
+            <p class="cr">Copyright  @ 2026 - Cibercafé Nova</p>
         </div>
     </footer>
 </body>
