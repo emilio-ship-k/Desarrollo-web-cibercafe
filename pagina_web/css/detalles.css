@@ -58,3 +58,109 @@ nav img {
     }
 }
 
+main{
+    padding: 80px 20px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*Boton volver*/
+.volver{
+    display: inline-block;
+    margin-bottom: 20px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.volver:hover{
+    text-decoration: underline;
+}
+
+/*Cuadro de detalles*/
+.panel{
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.panel header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.panel header p{
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.uso{
+    background-color: rgb(255, 68, 68);
+}
+
+/*Lista con especificaciones*/
+dl {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 15px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+dt{
+    font-weight: bold;
+    color: rgb(59, 57, 57);
+    border-bottom: 1px dashed rgb(255, 247, 247);
+}
+
+dd{
+    margin: 0;
+    padding-bottom: 5px;
+    color: rgb(38, 38, 38);
+}
+
+/*Alertas*/
+.alerta{
+    background-color: rgb(243, 241, 187);
+    color: rgb(84, 58, 12);
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+/*Botones de incidencia*/
+.acciones_op{
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.acciones_op button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+}
+
+.peligro{
+    background-color: rgb(252, 75, 75);
+}
+
+.secundario{
+    background-color: rgb(196, 193, 193);
+}
+
+.alert{
+    background-color: chocolate;
+}
