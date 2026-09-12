@@ -101,7 +101,9 @@ h3 {text-align: center;}
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 25px;
-    margin-bottom: 500px;
+    /*Evita que la columna se deslice para abajo*/
+    align-items: start;
+    margin: 0 30px 500px 30px;
 }
 
 /*Panel de disponibilidad*/
@@ -117,6 +119,7 @@ h3 {text-align: center;}
     text-align: start;
     font-size: 17px;
     border-bottom: 2px solid gray;
+    margin-bottom: 10px;
 }
 
 table{
@@ -156,6 +159,19 @@ th{
 }
 
 /*Lista de indicencia*/
-.incidente{
-    
+.list_incid{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item_incid{
+    border-left: 4px solid rgb(233, 100, 100);
+    background: rgb(235, 209, 209);
+}
+.item_incid strong{
+    display: block;
+    margin-bottom: 4px;
+    color: rgb(214, 0, 0);
 }
