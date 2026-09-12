@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <!--Descripcion de la página-->
     <meta name="description" content="Cibercafé descripcion">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/detalles.css">
     <script src="https://kit.fontawesome.com/2193d055c9.js" crossorigin="anonymous"></script>
 </head>
 <!--Cuerpo de la página-->
@@ -34,37 +34,53 @@
     </section>
     <!--Contenido principal-->
     <main>
-        <!--Seccion de panel operativo-->
-        <section id="operativo">
-            <article>
-                <header>
-                    <h1>Panel Operativo</h1>
-                </header>
-            </article>
-        </section>
+        <a href="salas.html" class="volver"><- Volver a Salas y Puesto</a>
+        <!--Seccion de detalles-->
+        <article class="panel">
+            <header class="detalle">
+                <h1>Pc 16 - Zona Gamer</h1>
+                <p>EN USO</p>
+            </header>
 
-        <!--Seccion de Salas y puesto-->
-        <section>
+            <dl>
+                <dt>Hardware</dt>
+                <dd>Procesador Intel i7 13700F, 32GB RAM, DDR5, RTX 4070, Monitor 165hz</dd>
 
-        </section>
+                <dt>Sesión Actual</dt>
+                <dd>Iniciada a las 15:30 hrs por <strong>Cliente: Sebastian Quezada</strong></dd>
 
-        <!--Detalle del computador-->
-        <section>
+                <dt>Reserva Próxima</dt>
+                <dd>19:00 hrs - 21:00 hrs (Cliente: Jhonatan Nuñez)</dd>
 
-        </section>
+                <dt>Tarifa Aplicada</dt>
+                <dd>$2.500 / hora (Tarifa Gamer).</dd>
+            </dl>
+
+            <p class="alerta">
+                <strong>Aviso de Indicendia:</strong> Reporte. Teclado mecánico con tecla CTRL bloqueda.
+            </p>
+
+            <div class="acciones operativa">
+                <button class="bot peligro">Finalizar Sesión</button>
+                <button class="bot secundario">Finalizar Sesión</button>
+                <button class="bot alerta">Finalizar Sesión</button>
+            </div>
+        </article>
+
     </main>
 
     <!--Pie de la página-->
     <footer>
-        </div>
-        <p>Correo:
-        <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
-        </p>
-        <p>Telefono:
-        <a href="+56952305515">+56 9 5230 5515</a>
-        </p>
+        <!--Datos de contacto-->
         <div>
-            Copyright  @ 2026 - Cibercafé Nova
+            <h4>Contactos</h4>
+            <p>Correo:
+            <a href="CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
+            </p>
+            <p>Telefono:
+            <a href="+56952305515">+56 9 5230 5515</a>
+            </p>
+            <p class="cr">Copyright  @ 2026 - Cibercafé Nova</p>
         </div>
     </footer>
 </body>

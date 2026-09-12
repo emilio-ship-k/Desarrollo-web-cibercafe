@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'system-ui';
+}
+
+/*Color del cuerpo*/
+body {
+    background-color: rgb(249, 248, 248);
+}
+/*Color de la barra*/
+.barra {
+    background-color: rgb(52, 33, 33);
+}
+
+/*la forma de la barra de navegacion*/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+/*Logo de la pagina*/
+nav img {
+    width: 100px;
+}
+/*La separacion de los links*/
+.encab {
+    display: flex;
+    gap: 40px;
+}
+/*Apariencia de los links*/
+.encab a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+/*Color a pasar el ratón por encima*/
+.encab a:hover {
+    border-bottom: 2px solid black;
+}
+/*Apariencia de la barra cuando se comprime la pagina*/
+@media (max-width: 430px)
+{
+    nav {
+        flex-direction: column;
+    }
+    nav .encab {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: center;
+    }
+    nav img{
+        width: 50px;
+    }
+}
+
