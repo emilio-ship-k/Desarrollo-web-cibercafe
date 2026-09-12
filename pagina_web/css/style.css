@@ -157,7 +157,7 @@ p {
     color : white;
 }
 
-/*Decoración presentación*/
+/*Decoración palabras*/
 main{
     padding: 20px 20px 60px;
 }
@@ -171,4 +171,64 @@ main{
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 10px;
+}
+
+.detalles h2{
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.detalles p{
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/*Secciones de box*/
+.secciones{
+    display: grid;
+    gap: 25px;
+    text-align: left;
+    grid-template-columns: 3fr;
+
+    align-items: start;
+
+}
+
+.box{
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.box p{
+    font-size: 14px;
+    color: black;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.box a{
+    display: inline-block;
+    background-color: rgb(37, 37, 37);
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.box a:hover{
+    background-color: rgb(81, 80, 80);
 }
