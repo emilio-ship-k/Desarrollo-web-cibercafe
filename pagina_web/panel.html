@@ -34,29 +34,65 @@
     <main>
         <header><h1>Panel Operativo</h1></header>
         <!--Resumen disponibilidad-->
-        <h2>Disponibilidad general</h2>
+        <h3>Disponibilidad general</h3>
         <section id="flexbox_resumen">
             <article class="resum">
-                <h3>Disponible</h3>
+                <h4>Disponible</h4>
                 <p class="verde">11</p>
             </article>
             <article class="resum">
-                <h3>Sesiones <br>de uso</h3>
+                <h4>Sesiones <br>de uso</h4>
                 <p class="rojo">10</p>
             </article>
             <article class="resum">
-                <h3>Reserva Próxima</h3>
+                <h4>Reserva Próxima</h4>
                 <p class="tomate">7</p>
             </article>
             <article class="resum">
-                <h3>Fuera de servicio</h3>
+                <h4>Fuera de servicio</h4>
                 <p>3</p>
             </article>
         </section>
 
         <!--Seccion de Salas y puesto-->
-        <section>
-
+        <section class="panel">
+            <!--*Tabla de datos-->
+            <h3>Disponibilidad general</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Puesto</th>
+                        <th>Cliente</th>
+                        <th>Inicio</th>
+                        <th>Tiempo Usado</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!--strong para colocar en negrita-->
+                        <td><strong>Pc 02</strong> (general)</td>
+                        <td>Sebastián Quezada</td>
+                        <td>16:15</td>
+                        <td>45 min</td>
+                        <td class="badge">En uso</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pc 16</strong> (Gamer)</td>
+                        <td>Diego Ibarra</td>
+                        <td>15:30</td>
+                        <td>1 h 30 min</td>
+                        <td class="badge">En uso</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pc 23</strong> (Grupal)</td>
+                        <td>Jonathan Nuñez</td>
+                        <td>15:30</td>
+                        <td>1 h 30 min</td>
+                        <td class="badge">En uso</td>
+                </tr>
+                </tbody>
+            </table>
         </section>
 
         <!--Detalle del computador-->
