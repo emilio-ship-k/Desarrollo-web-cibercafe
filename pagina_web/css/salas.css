@@ -1,0 +1,272 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'system-ui';
+}
+
+/*Color del cuerpo*/
+body {
+    background-color: rgb(109, 107, 107);
+}
+/*Color de la barra*/
+.barra {
+    background-color: rgb(52, 33, 33);
+}
+
+/*la forma de la barra de navegacion*/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+/*Logo de la pagina*/
+nav img {
+    width: 100px;
+}
+/*La separacion de los links*/
+.encab {
+    display: flex;
+    gap: 40px;
+}
+/*Apariencia de los links*/
+.encab a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+/*Color a pasar el ratón por encima*/
+.encab a:hover {
+    border-bottom: 2px solid black;
+}
+/*Apariencia de la barra cuando se comprime la pagina*/
+@media (max-width: 430px)
+{
+    nav {
+        flex-direction: column;
+    }
+    nav .encab {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: center;
+    }
+    nav img{
+        width: 50px;
+    }
+}
+
+/*Para el registro*/
+/**/
+.login_1
+{
+    padding: 20px;
+    border: none;
+}
+/*Cuadrito color celeste*/
+.login_1 form
+{
+    background-color: rgb(201, 206, 206);
+    padding: 25px;
+    border-radius: 5px;
+}
+/*Titulo de acesso administrativo*/
+.login_1 form h4
+{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+/*Simbolo de posición*/
+.input-wrapper {
+    position: relative;
+}
+/*Tamaño de los recuedros*/
+.input-wrapper input {
+    padding: 12px 0px 12px 50px;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 15px;
+}
+/*El escalado de los simbolos*/
+.input-wrapper:focus-within i{
+    transform: scale(1.1);
+}
+/*Posicion de los simbolos*/
+.input-wrapper i {
+    position: absolute;
+    margin-left: 20px;
+    top: 14px;
+    font-size: 20px;
+    color: rgb(42, 182, 175);
+    transition: .3s ease-in;
+}
+/*Tamaño de los terminos*/
+.terminos
+{
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+/*Tamaño de la checkbox*/
+.terminos input[type="checkbox"]{
+    transform: scale(1.4);
+    margin-left: 10px;
+    vertical-align: middle;
+}
+/*Apariencia del boton*/
+.button{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+/*Apariencia del boton ingresar*/
+button {
+    padding: 10px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: rgb(50, 187, 208);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s ease;
+}
+/*Animación al pasar el ratón*/
+button:hover {
+    transform: scale(1.05);
+}
+.puestos {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.puesto {
+    background-color: rgb(115, 185, 181);
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+p {
+    color : white;
+}
+
+.log{
+    background-color: rgb(245, 77, 77);
+    color: whitesmoke;
+    padding: 16px 16px;
+    font-size: 16px;
+
+}
+
+/*Decoración palabras*/
+main{
+    padding: 20px 20px 60px;
+}
+
+.presentacion h1{
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.presentacion p{
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.detalles h2{
+    font-size: 26px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.detalles p{
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/*Secciones de box*/
+.secciones{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 25px;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 300px;
+}
+
+.box{
+    flex: 1 1 280px;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.box p{
+    font-size: 14px;
+    color: black;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.box a{
+    display: inline-block;
+    background-color: rgb(37, 37, 37);
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.box a:hover{
+    background-color: rgb(81, 80, 80);
+}
+
+/*Pie de pagina decoración*/
+footer{
+    background: rgb(47, 46, 46);
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+footer div{
+    margin-left: 30px;
+}
+footer h4{
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+footer p{
+    font-weight: bold;
+}
+footer p a{
+    text-decoration: none;
+    color: purple;
+}
+
+.cr{
+    margin-top: 10px;
+    font-weight: normal;
+}
