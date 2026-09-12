@@ -164,3 +164,31 @@ dd{
 .alert{
     background-color: chocolate;
 }
+
+/*Pie de pagina decoración*/
+footer{
+    background: rgb(47, 46, 46);
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+footer div{
+    margin-left: 30px;
+}
+footer h4{
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+footer p{
+    font-weight: bold;
+}
+footer p a{
+    text-decoration: none;
+    color: purple;
+}
+
+.cr{
+    margin-top: 10px;
+    font-weight: normal;
+}
