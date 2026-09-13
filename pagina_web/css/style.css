@@ -11,6 +11,8 @@ body {
     flex-direction: column;
     background-color: rgb(109, 107, 107);
     margin: 0;
+    /*cambio para el pie de pagina*/
+    min-height: 100vh;
 }
 /*Color de la barra*/
 .barra {
@@ -171,6 +173,7 @@ p {
 /*Decoración palabras*/
 main{
     padding: 20px 20px 60px;
+    flex: 1;
 }
 
 .presentacion h1{

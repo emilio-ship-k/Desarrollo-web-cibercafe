@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    min-height: 100vh;
 }
 /*Color de la barra*/
 .barra {
@@ -64,7 +65,8 @@ nav img {
 main{
     padding: 80px 20px 40px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
+    flex: 1;
 }
 
 /*Boton volver*/
