@@ -9,14 +9,16 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: #ffffffee;
+    background-color: rgb(253, 253, 253);
     margin: 0;
     /*cambio para el pie de pagina*/
     min-height: 100vh;
 }
 /*Color de la barra*/
 .barra {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
+    border-bottom: 2px solid #4DA3FF;
+
 }
 
 /*la forma de la barra de navegacion*/
@@ -81,7 +83,7 @@ nav img {
 /*Cuadrito color celeste*/
 .login_1 form
 {
-    background-color: rgb(201, 206, 206);
+    background-color: #96c3f2;
     padding: 25px;
     border-radius: 5px;
 }
@@ -96,7 +98,7 @@ nav img {
 
 /*fondo del popup*/
 .login_1::backdrop{
-    background-color: grey;
+    background-color: white;
 }
 
 /*Simbolo de posición*/
@@ -149,7 +151,7 @@ button {
     padding: 10px 10px;
     font-size: 15px;
     border-radius: 5px;
-    background-color: rgb(50, 187, 208);
+    background-color: #4DA3FF;
     border: none;
     cursor: pointer;
     font-weight: bold;
@@ -174,7 +176,7 @@ button:hover {
 }
 p {
     color : rgb(0, 0, 0);
-        font-weight: 400;
+    font-weight: 400;
 }
 
 .log{
@@ -201,6 +203,7 @@ main{
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .presentacion{
@@ -216,6 +219,7 @@ main{
 .detalles p{
     font-size: 16px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 /*Secciones de box*/
@@ -282,10 +286,13 @@ footer h4{
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: bold;
+    text-decoration-line: underline;
     color: white;
 }
 footer p{
     font-weight: bold;
+    color: white;
+
 }
 footer p a{
     text-decoration: none;
