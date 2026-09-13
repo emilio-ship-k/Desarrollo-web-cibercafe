@@ -67,8 +67,16 @@ nav img {
 /**/
 .login_1
 {
-    padding: 20px;
     border: none;
+    border-radius: 8px;
+    /*popup centrado*/
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    /*tamaño para estirarse*/
+    width: max-content;
+    height: max-content;
 }
 /*Cuadrito color celeste*/
 .login_1 form
@@ -85,6 +93,12 @@ nav img {
     font-size: 20px;
     color: rgb(0, 0, 0);
 }
+
+/*fondo del popup*/
+.login_1::backdrop{
+    background-color: grey;
+}
+
 /*Simbolo de posición*/
 .input-wrapper {
     position: relative;
