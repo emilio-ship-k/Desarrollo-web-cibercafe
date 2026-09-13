@@ -121,3 +121,18 @@ footer p a{
     margin-top: 10px;
     font-weight: normal;
 }
+.disponible {
+    background-color: #2ecc71; 
+}
+
+.reservado {
+    background-color: #f1c40f; 
+}
+
+.en_uso {
+    background-color: #e74c3c; 
+}
+
+.fuera_de_servicio {
+    background-color: #95a5a6; 
+}
