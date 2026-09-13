@@ -7,11 +7,12 @@
 
 /*Color del cuerpo*/
 body {
-    background-color: rgb(89, 88, 88);
+    background-color: white;
 }
 /*Color de la barra*/
 .barra {
-    background-color: rgb(52, 33, 33);
+    background-color: white
+    
 }
 
 /*la forma de la barra de navegacion*/
