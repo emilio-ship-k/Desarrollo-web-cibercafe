@@ -7,7 +7,10 @@
 
 /*Color del cuerpo*/
 body {
-    background-color: rgb(249, 248, 248);
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 /*Color de la barra*/
 .barra {
@@ -84,6 +87,7 @@ main{
     padding: 30px;
     border-radius: 8px;
     border: 1px solid black;
+    margin-bottom: 150px;
 }
 
 .panel header{

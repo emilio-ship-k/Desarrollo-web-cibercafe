@@ -7,7 +7,10 @@
 
 /*Color del cuerpo*/
 body {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(109, 107, 107);
+    margin: 0;
 }
 /*Color de la barra*/
 .barra {
@@ -182,6 +185,10 @@ main{
     margin-bottom: 10px;
 }
 
+.presentacion{
+    margin-bottom: 100px;
+}
+
 .detalles h2{
     font-size: 26px;
     margin-bottom: 12px;
@@ -200,7 +207,7 @@ main{
     gap: 25px;
     text-align: left;
     margin-top: 30px;
-    margin-bottom: 300px;
+    margin-bottom: 150px;
 }
 
 .box{
