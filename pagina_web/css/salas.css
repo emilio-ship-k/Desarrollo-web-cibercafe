@@ -68,6 +68,7 @@ nav img {
 .puestos {
     list-style: none;
     display: flex;
+    margin: 20px;
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -83,97 +84,10 @@ p {
     font-weight: 400;
 }
 
-.log{
-    background-color: #4DA3FF;
-    color: whitesmoke;
-    padding: 16px 16px;
-    font-size: 16px;
-
-}
-
 /*Decoración palabras*/
 main{
     padding: 20px 20px 60px;
     flex: 1;
-}
-
-.presentacion h1{
-    font-size: 32px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.presentacion p{
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.presentacion{
-    margin-bottom: 100px;
-}
-
-.detalles h2{
-    font-size: 26px;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.detalles p{
-    font-size: 16px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/*Secciones de box*/
-.secciones{
-    display: flex;
-    flex-wrap: wrap-reverse;
-    gap: 25px;
-    text-align: left;
-    margin-top: 30px;
-    margin-bottom: 40;
-}
-
-.box{
-    flex: 1 1 280px;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.box h3{
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.box p{
-    font-size: 14px;
-    color: black;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.box a{
-    display: inline-block;
-    background-color: rgb(37, 37, 37);
-    color: whitesmoke;
-    text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 13px;
-    text-align: center;
-    transition: background 0.2s;
-}
-
-.box a:hover{
-    background-color: rgb(81, 80, 80);
 }
 
 /*Pie de pagina decoración*/
