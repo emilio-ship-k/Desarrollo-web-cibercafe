@@ -9,14 +9,14 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: rgb(109, 107, 107);
+    background-color: #ffffffee;
     margin: 0;
     /*cambio para el pie de pagina*/
     min-height: 100vh;
 }
 /*Color de la barra*/
 .barra {
-    background-color: rgb(52, 33, 33);
+    background-color: rgb(255, 255, 255);
 }
 
 /*la forma de la barra de navegacion*/
@@ -173,11 +173,12 @@ button:hover {
     text-align: center;
 }
 p {
-    color : white;
+    color : rgb(0, 0, 0);
+        font-weight: 400;
 }
 
 .log{
-    background-color: rgb(245, 77, 77);
+    background-color: #4DA3FF;
     color: whitesmoke;
     padding: 16px 16px;
     font-size: 16px;
@@ -269,7 +270,7 @@ main{
 
 /*Pie de pagina decoración*/
 footer{
-    background: rgb(47, 46, 46);
+    background: #111;
     width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -278,16 +279,17 @@ footer div{
     margin-left: 30px;
 }
 footer h4{
-    font-size: 17px;
+    font-size: 20px;
     margin-bottom: 10px;
     font-weight: bold;
+    color: white;
 }
 footer p{
     font-weight: bold;
 }
 footer p a{
     text-decoration: none;
-    color: purple;
+    color: #4DA3FF;
 }
 
 .cr{
