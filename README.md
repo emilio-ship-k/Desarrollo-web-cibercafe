@@ -32,5 +32,3 @@ salas.html (Inventario Visual): Vista general de los equipos distribuidos por zo
   
 detalles.html (Ficha Técnica): Vista individual de un equipo. Organiza las especificaciones de hardware, datos de sesión y alertas utilizando listas de descripción.  
   
-
-## Pendiente Entrega 2:
