@@ -2,7 +2,7 @@
 
 Este proyecto consiste en el maquetado estructural de un sistema web para la administración y control operativo de "Cibercafé Nova". El objetivo es proporcionar una interfaz que simule la gestión de disponibilidad de equipos, reservas de clientes e incidencias técnicas.  
 
-![cibercafe_nova, logo del cibercafe](/assets/pagina_web/images/logo.png)
+![cibercafe_nova, logo del cibercafe](pagina_web/images/logo.png)
 
 ### Equipo
 
@@ -12,13 +12,13 @@ Este proyecto consiste en el maquetado estructural de un sistema web para la adm
 
 ## Estado Hito 1:
 
-Boceto de página web en formato visual, hecha en HTML y CSS estático.
-Todavia no se utilizara javascript.
+Boceto de página web en formato visual, hecha en HTML y CSS estático.  
+Todavia no se utilizara javascript.  
 
-Links de las direcciones de las ip elástica:
-http://100.61.52.146/
-o
-http://50.19.1.95/
+Links de las direcciones de las ip elástica:  
+http://100.61.52.146/  
+o  
+http://50.19.1.95/  
 
 ## Estructura de Páginas
 
