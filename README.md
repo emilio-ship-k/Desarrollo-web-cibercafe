@@ -25,8 +25,12 @@ http://50.19.1.95/
 El sistema está compuesto por cuatro vistas principales interconectadas:  
   
 index.html (Inicio): Landing page del cibercafé. Incluye información de los servicios y un popup nativo de inicio de sesión administrativo utilizando el atributo HTML popover.  
+  
 panel.html (Dashboard): Módulo operativo que consolida la disponibilidad del local. Utiliza tablas para estructurar las sesiones activas, los horarios de las próximas reservas y una lista de incidencias técnicas.  
+  
 salas.html (Inventario Visual): Vista general de los equipos distribuidos por zonas (General, Gaming, Grupos). Emplea listas para categorizar visualmente el estado de cada PC (disponible, en uso, reservado, fuera de servicio).  
+  
 detalles.html (Ficha Técnica): Vista individual de un equipo. Organiza las especificaciones de hardware, datos de sesión y alertas utilizando listas de descripción.  
+  
 
-Pendiente Entrega 2:
+## Pendiente Entrega 2:
