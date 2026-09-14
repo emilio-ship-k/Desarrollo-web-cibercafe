@@ -19,6 +19,9 @@ Links de las direcciones de las ip elástica:
 http://100.61.52.146/  
 o  
 http://50.19.1.95/  
+  
+Link de la presentación (PPT):  
+https://docs.google.com/presentation/d/1D7EpK1aJ9JGm6b6xIpXODZSz1Ec0XQ5V7QwzEllwjDA/edit?slide=id.p#slide=id.p  
 
 ## Estructura de Páginas
 
