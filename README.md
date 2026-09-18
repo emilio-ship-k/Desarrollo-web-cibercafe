@@ -6,7 +6,7 @@ Este proyecto consiste en el maquetado estructural de un sistema web para la adm
 
 ### Equipo
 
--> Sebastián Quesada  
+-> Sebastián Quezada  
 -> Emilio Bueno  
 -> Jonathan Nuñez  
 
