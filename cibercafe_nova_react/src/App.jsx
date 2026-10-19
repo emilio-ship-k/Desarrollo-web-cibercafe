@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Salas from './pages/Salas'; 
 
 function App() {
   // Guarda el usuario cuando inicia sesión en el Login
@@ -16,6 +17,7 @@ function App() {
       {/* Contenido de la página actual */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/salas" element={<Salas />} />
       </Routes>
 
       {/* Pie de página presente en toda la web */}
