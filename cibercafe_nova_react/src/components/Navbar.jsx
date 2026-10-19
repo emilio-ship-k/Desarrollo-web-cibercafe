@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import logoImg from '../images/logo.png';
+
 
 function Navbar({ usuario, setUsuario }) {
   // Estado para abrir o cerrar el popup de Login
@@ -34,7 +36,7 @@ function Navbar({ usuario, setUsuario }) {
         <nav className="navbar navbar-expand-md container py-2">
           {/* Logo */}
           <Link className="navbar-brand" to="/">
-            <img src="/images/logo.png" alt="logo" className="logo" />
+            <img src={logoImg} alt="logo" className="logo" />
           </Link>
 
           {/* Botón de menú cuando se ve en celular */}
@@ -50,7 +52,6 @@ function Navbar({ usuario, setUsuario }) {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Vínculos de tu Hito 1 */}
           <div className="collapse navbar-collapse" id="menuNova">
             <div className="navbar-nav mx-auto encab text-center my-2 my-md-0">
               <NavLink className="nav-link" to="/panel" title="Operativos">
