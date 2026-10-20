@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Salas from './pages/Salas'; 
-import Panel from './pages/Panel'; // Importa el componente Panel
+import Panel from './pages/Panel'; 
 
 function App() {
   // Guarda el usuario cuando inicia sesión en el Login
