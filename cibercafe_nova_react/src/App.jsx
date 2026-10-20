@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Salas from './pages/Salas'; 
 import Panel from './pages/Panel'; 
+import Detalles from './pages/Detalles';
 
 function App() {
   // Guarda el usuario cuando inicia sesión en el Login
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/salas" element={<Salas />} />
         <Route path="/panel" element={<Panel />} /> 
+        <Route path="/detalles" element={<Detalles />} />
       </Routes>
 
       {/* Pie de página presente en toda la web */}
