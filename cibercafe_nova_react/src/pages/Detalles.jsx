@@ -31,7 +31,7 @@ function Detalles() {
   const [equipo, setEquipo] = useState({
     id: 'PC-16',
     nombre: 'Pc 16 - Zona Gamer',
-    estado: 'EN USO',
+    estado: 'EN_USO',
     hardware: 'Procesador Intel i7 13700F, 32GB RAM, DDR5, RTX 4070, Monitor 165hz',
     clienteActual: 'Sebastián Quezada',
     fechaSesion: obtenerFechaHoy(),
@@ -119,7 +119,7 @@ function Detalles() {
 
     setEquipo({
       ...equipo,
-      estado: 'EN USO',
+      estado: 'EN_USO',
       clienteActual: nuevoCliente,
       fechaSesion: fechaActualSistema,
       horaInicio: horaActualSistema,
@@ -143,7 +143,7 @@ function Detalles() {
     setHoraActualSistema(equipo.reserva.inicio);
     setEquipo({
       ...equipo,
-      estado: 'EN USO',
+      estado: 'EN_USO',
       clienteActual: equipo.reserva.cliente,
       fechaSesion: equipo.reserva.fecha,
       horaInicio: equipo.reserva.inicio,
@@ -161,7 +161,7 @@ function Detalles() {
   const guardarFalla = (descripcionFalla) => {
     setEquipo({
       ...equipo,
-      estado: 'FUERA DE SERVICIO',
+      estado: 'FUERA_DE_SERVICIO',
       clienteActual: null,
       horaInicio: null,
       horasUsadas: 0,
@@ -170,7 +170,7 @@ function Detalles() {
     setPanelActivo(null);
     setMensajeSistema({
       tipo: 'danger',
-      texto: 'Falla reportada. El computador quedó FUERA DE SERVICIO.'
+      texto: 'Falla reportada. El computador quedó FUERA_DE_SERVICIO.'
     });
   };
 
@@ -238,7 +238,7 @@ function Detalles() {
           </div>
 
           <div className="acciones_op">
-            {equipo.estado === 'EN USO' && (
+            {equipo.estado === 'EN_USO' && (
               <>
                 <button type="button" className="btn-op peligro" onClick={() => setPanelActivo('pago')}>
                   Finalizar y Cobrar Sesión
@@ -268,14 +268,14 @@ function Detalles() {
               </>
             )}
 
-            {equipo.estado === 'FUERA DE SERVICIO' && (
+            {equipo.estado === 'FUERA_DE_SERVICIO' && (
               <button type="button" className="btn btn-success fw-bold btn-sm px-3 py-2" onClick={marcarComoReparado}>
                 ✓ Marcar como Reparado (Habilitar PC)
               </button>
             )}
           </div>
 
-          {panelActivo === 'pago' && equipo.estado === 'EN USO' && (
+          {panelActivo === 'pago' && equipo.estado === 'EN_USO' && (
             <FormPagoSimulado
               equipo={equipo}
               horaFinActualTexto={horaFinActualTexto}
@@ -294,7 +294,7 @@ function Detalles() {
             />
           )}
 
-          {panelActivo === 'falla' && equipo.estado !== 'FUERA DE SERVICIO' && (
+          {panelActivo === 'falla' && equipo.estado !== 'FUERA_DE_SERVICIO' && (
             <FormReporteFalla onGuardarFalla={guardarFalla} />
           )}
         </div>

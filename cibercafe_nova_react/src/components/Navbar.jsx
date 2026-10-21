@@ -54,6 +54,9 @@ function Navbar({ usuario, setUsuario }) {
 
           <div className="collapse navbar-collapse" id="menuNova">
             <div className="navbar-nav mx-auto encab text-center my-2 my-md-0">
+              <NavLink className="nav-link" to="/" title="inicio">
+                Inicio
+              </NavLink>
               <NavLink className="nav-link" to="/panel" title="Operativos">
                 Operativos
               </NavLink>

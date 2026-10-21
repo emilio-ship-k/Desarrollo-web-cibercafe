@@ -1,5 +1,5 @@
    import { Link } from 'react-router-dom';
-   import './Panel.css';
+   import '../css/Panel.css';
    
 function Panel() {
    return(
@@ -26,7 +26,7 @@ function Panel() {
             </article>
         </section>
 
-       
+        
         <div class="centro">
             <div>
                 <section class="panel">
@@ -112,6 +112,7 @@ function Panel() {
                 </ul>
             </section>
         </div>
+        
     </main>
    );
 }
