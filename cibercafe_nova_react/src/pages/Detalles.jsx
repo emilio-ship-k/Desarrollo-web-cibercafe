@@ -17,7 +17,7 @@ function Detalles() {
     },
     reservaProxima: '19:00 hrs - 21:00 hrs (Cliente: Jonathan Nuñez)',
     horaInicioReserva: '19:00',
-    tarifaValor: 3500, // Tarifa actualizada a 3500
+    tarifaValor: 3500,
     tarifaTexto: '$3.500 / hora (Tarifa Gamer).',
     motivo: 'Sesión activa asignada a Sebastián Quezada en turno de tarde.'
   });
@@ -106,7 +106,6 @@ function Detalles() {
         &lt;- Volver a Salas y Puestos
       </Link>
 
-      {/* Alerta de confirmación con el cobro si aplica */}
       {mensajeExito && (
         <div className="alert alert-success alert-dismissible fade show mb-3" role="alert">
           {mensajeExito}
@@ -119,7 +118,6 @@ function Detalles() {
         </div>
       )}
 
-      {/* Ficha técnica del equipo */}
       <article className="panel-detalle shadow-sm">
         <header className="detalle-header">
           <h1>{equipo.nombre}</h1>

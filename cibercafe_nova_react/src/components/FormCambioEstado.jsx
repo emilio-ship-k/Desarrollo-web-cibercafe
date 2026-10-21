@@ -138,7 +138,6 @@ function FormCambioEstado({
         </div>
       )}
 
-      {/* Componente Modular 1: Botones */}
       <BotoneraEstados
         estadoSeleccionado={estadoSeleccionado}
         onSeleccionar={seleccionarAccion}
@@ -159,7 +158,6 @@ function FormCambioEstado({
             </button>
           </div>
 
-          {/* Campos para "En uso" */}
           {estadoSeleccionado === 'En uso' && (
             <div className="row g-2 mb-3">
               <div className="col-12 col-sm-7">
@@ -184,7 +182,6 @@ function FormCambioEstado({
             </div>
           )}
 
-          {/* Campos para "Reservado" */}
           {estadoSeleccionado === 'Reservado' && (
             <div className="row g-2 mb-3">
               <div className="col-12 col-sm-6">
@@ -218,7 +215,6 @@ function FormCambioEstado({
             </div>
           )}
 
-          {/* Sugerencias de motivo */}
           <div className="mb-3">
             <label className="form-label small fw-bold mb-1">Seleccionar motivo frecuente:</label>
             <div className="d-flex flex-column gap-1">
@@ -237,7 +233,6 @@ function FormCambioEstado({
             </div>
           </div>
 
-          {/* Componente Modular 2: Cuadro de Cobro si es "Sesión finalizada y cobro total" */}
           {esSesionFinalizadaCobrada && (
             <ReciboCobro
               cliente={sesionActualInfo?.cliente}
@@ -247,7 +242,6 @@ function FormCambioEstado({
             />
           )}
 
-          {/* Campo de texto libre para el motivo */}
           <div className="mb-3">
             <label className="form-label small fw-bold mb-1">Motivo obligatorio del cambio:</label>
             <input
