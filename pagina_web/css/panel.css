@@ -205,7 +205,7 @@ footer p a{
     margin-top: 10px;
     font-weight: normal;
 }
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .centro {
         grid-template-columns: 1fr;
     }

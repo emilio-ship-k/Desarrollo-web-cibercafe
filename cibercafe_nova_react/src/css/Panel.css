@@ -2,112 +2,84 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'system-ui';
+    font-family: 'system-ui', sans-serif;
 }
 
-/*Color del cuerpo*/
+/* Color del cuerpo */
 body {
-    background-color: white;
-}
-/*Color de la barra*/
-.barra {
-    background-color: rgb(255, 254, 255);
-        border-bottom: 2px solid #4DA3FF;
-}
-/*la forma de la barra de navegacion*/
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px;
-}
-/*Logo de la pagina*/
-nav img {
-    width: 100px;
-}
-/*La separacion de los links*/
-.encab {
-    display: flex;
-    gap: 40px;
-}
-/*Apariencia de los links*/
-.encab a {
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-}
-/*Color a pasar el ratón por encima*/
-.encab a:hover {
-    border-bottom: 2px solid black;
-}
-/*Apariencia de la barra cuando se comprime la pagina*/
-@media (max-width: 430px)
-{
-    nav {
-        flex-direction: column;
-    }
-    nav .encab {
-        flex-direction: column;
-        margin-top: 20px;
-        text-align: center;
-    }
-    nav img{
-        width: 50px;
-    }
+    background-color: rgb(253, 253, 253);
 }
 
-/*Apariencia del panel*/
-#flexbox_resumen{
-    display: flex;
-    gap: 10px;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin: 20px 0 20px 0;
-}
-/*flexbox de disponibilidad general*/
-.resum{
-    background-color: white;
+.panel-main {
+    padding: 20px 0 40px;
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
-    height: 100px;
+}
+
+
+
+.subtitulo-panel {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 30PX;
+}
+
+/* Apariencia del contenedor de tarjetas de resumen */
+#flexbox_resumen {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px 30px 30px 30px;
+}
+
+/* Tarjetas individuales de disponibilidad general */
+.resum {
+    background-color: white;
+    flex: 1 1 200px;
+    max-width: 250px;
+    height: 105px;
     border-radius: 15px;
     border: 2px solid black;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding: 10px;
 }
 
-.resum h4{
-    font-size: 17px;
+.resum h4 {
+    font-size: 16px;
     color: rgb(112, 107, 107);
+    margin-bottom: 4px;
 }
 
-.resum p{
-    font-size: 35px;
+.resum p {
+    font-size: 32px;
     font-weight: bold;
+    margin: 0;
 }
 
-.verde{color: green;}
-.rojo{color: red;}
-.tomate{color: tomato;}
+.verde { color: green; }
+.rojo { color: red; }
+.tomate { color: tomato; }
+.gris { color: #6c757d; }
 
-h3 {text-align: center;}
-
-/*Separacion de la pagina*/
-.centro{
+/* Separación de las dos columnas principales */
+.centro {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 25px;
-    /*Evita que la columna se deslice para abajo*/
+    /* Evita que la columna de incidencias se estire hacia abajo */
     align-items: start;
-    margin: 0 30px 500px 30px;
+    margin: 0 30px 40px 30px;
 }
 
-/*Panel de disponibilidad*/
-.panel{
+/* Paneles blancos (Tablas e Incidencias) */
+.panel {
     background-color: white;
     padding: 22px;
     border-radius: 15px;
@@ -115,98 +87,108 @@ h3 {text-align: center;}
     margin-bottom: 20px;
 }
 
-.panel h3{
+.panel h3 {
     text-align: start;
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: bold;
     border-bottom: 2px solid gray;
-    margin-bottom: 10px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-table{
+/* Contenedor para que la tabla deslice horizontalmente en celular sin salirse */
+.tabla-responsive {
     width: 100%;
-    /*Eliminar espacio de separación*/
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
     border-collapse: collapse;
     font-size: 14px;
 }
-th, td{
+
+th, td {
     padding: 10px 12px;
     text-align: left;
     border-bottom: 1px solid gray;
 }
-th{
+
+th {
     color: gray;
     font-weight: bold;
 }
 
-.badge{
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 10px;
+.link-puesto {
+    color: black;
+    text-decoration: none;
 }
 
-.activa{
+.link-puesto:hover {
+    color: #4DA3FF;
+    text-decoration: underline;
+}
+
+/* Etiquetas de estado */
+.badge-nova {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.activa {
     background-color: rgb(232, 157, 157);
     color: rgb(113, 29, 29);
 }
 
-.modal{
+.modalidad {
     background-color: rgb(214, 214, 32);
     color: rgb(132, 79, 25);
 }
 
-/*Lista de indicencia*/
-.list_incid{
+/* Lista de incidencias */
+.list_incid {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 0;
 }
 
-.item_incid{
+.item_incid {
     border-left: 4px solid rgb(233, 100, 100);
     background: rgb(235, 209, 209);
+    padding: 10px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
 }
-.item_incid strong{
+
+.item_incid strong {
     display: block;
     margin-bottom: 4px;
     color: rgb(214, 0, 0);
 }
 
-/*Pie de pagina decoración*/
-footer{
-    background:#111;
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-footer div{
-    margin-left: 30px;
-}
-footer h4{
-    font-size: 17px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-footer p{
-    font-weight: bold;
-        color: white;
-
-}
-footer p a{
-    text-decoration: none;
-    color: #4DA3FF;
+.item_incid p {
+    margin: 0;
+    color: #222;
 }
 
-.cr{
-    margin-top: 10px;
-    font-weight: normal;
-}
-@media (max-width: 600px) {
+/* Diseño Responsivo para móviles y tablets */
+@media (max-width: 768px) {
     .centro {
         grid-template-columns: 1fr;
+        margin: 0 15px 30px 15px;
+    }
+
+    #flexbox_resumen {
+        margin: 15px;
+    }
+
+    .resum {
+        flex: 1 1 140px;
     }
 }
