@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../css/Salas.css';
-
+import Modal_Reserva from '../components/Modal_reserva';
 function Salas() {
-  // Estado para controlar si la ventana de reserva está abierta y qué PC elegimos
+ 
   const [pcSeleccionado, setPcSeleccionado] = useState(null);
 
   // lista de PCs 
@@ -12,23 +12,21 @@ function Salas() {
     ,{ id: 'PC-05', estado: 'en_uso' } ,{ id: 'PC-06', estado: 'en_uso' }
   ]);
 
-  // Función para guardar la reserva 
-  const confirmarReserva = (e) => {
-    e.preventDefault(); // Evita que la página recargue
-    alert(`Reserva confirmada para el ${pcSeleccionado.id}`);
-    setPcSeleccionado(null); // Cierra la ventana
+ const guardarReserva = (pc) => {
+    alert(`¡Reserva exitosa !`);
+    setPcSeleccionado(null);
   };
 
   return (
     <main className="salas-container">
       <h2>Salas y Puestos</h2>
       
-      {/* MAPA DE PCs */}
+     
       <div className="grilla-pcs">
         {listaPcs.map((pc) => (
           <div key={pc.id} className={`puesto pc-${pc.estado}`} 
             
-          // Si está disponible, al hacer clic lo seleccionamos para reservar
+          
               onClick={() => {
               if (pc.estado === 'disponible') {
                 setPcSeleccionado(pc);
@@ -40,33 +38,13 @@ function Salas() {
         ))}
       </div>
 
-      {/* formulario de reserva aparece cuando se seleciona un pc */}
+      
       {pcSeleccionado && (
-        <div className="modal-reserva">
-          <form onSubmit={confirmarReserva} className="cuadro-reserva">
-            <h3>Reservar {pcSeleccionado.id}</h3>
-            
-            <label>Fecha:</label>
-            <input type="date" required />
-            
-            <label>Hora Inicio:</label>
-            <input type="time" required />
-            
-            <label>Hora Fin:</label>
-            <input type="time" required />
-            
-            <div className="botones">
-               {/* Botón de Cancelar */}
-              <button type="button" onClick={() => setPcSeleccionado(null)}>
-                Cancelar
-              </button>
-               {/* Botón de Confirmar  */}
-              <button type="submit">
-                Confirmar Reserva
-              </button>
-            </div>
-          </form>
-        </div>
+        <Modal_Reserva 
+          pc = {pcSeleccionado}
+          funcionCerrar={() => setPcSeleccionado(null)}
+          funcionConfirmar={guardarReserva}
+        />
       )}
     </main>
   );
