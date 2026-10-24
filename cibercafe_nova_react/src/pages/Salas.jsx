@@ -30,9 +30,9 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
     setPcSeleccionado(pc);
   };
 
-  // Confirmar reserva desde el modal
-  const guardarReserva = (pc) => {
-    const nuevoMotivo = `Reserva anticipada registrada en ${pc.sala}`;
+  // Confirmar reserva desde el modal recibiendo fecha y hora
+  const guardarReserva = (pc, fecha, horaInicio, horaFin) => {
+    const nuevoMotivo = `Reserva programada para el ${fecha} de ${horaInicio} a ${horaFin}`;
     cambiarEstadoPc(pc, 'Reservado', nuevoMotivo);
     alert(`¡Reserva exitosa para el ${pc.id} (${pc.sala})!`);
     setPcSeleccionado(null);
