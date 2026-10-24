@@ -4,33 +4,7 @@ import Modal_Reserva from '../components/Modal_reserva';
 
 const SALAS = ['Sala general', 'Sala gaming', 'Sala grupos'];
 
-function Salas() {
-
-  const [listaPcs, setListaPcs] = useState([
-    { id: 'PC-01', sala: 'Sala general', estado: 'Disponible' },
-    { id: 'PC-02', sala: 'Sala general', estado: 'En_uso' },
-    { id: 'PC-03', sala: 'Sala general', estado: 'Fuera_de_servicio' },
-    { id: 'PC-04', sala: 'Sala general', estado: 'Reservado' },
-
-    { id: 'PC-01', sala: 'Sala gaming', estado: 'Disponible' },
-    { id: 'PC-02', sala: 'Sala gaming', estado: 'En_uso' },
-    { id: 'PC-03', sala: 'Sala gaming', estado: 'Fuera_de_servicio' },
-    { id: 'PC-04', sala: 'Sala gaming', estado: 'Reservado' },
-
-    { id: 'PC-01', sala: 'Sala grupos', estado: 'Disponible' },
-    { id: 'PC-02', sala: 'Sala grupos', estado: 'En_uso' },
-    { id: 'PC-03', sala: 'Sala grupos', estado: 'Fuera_de_servicio' },
-    { id: 'PC-04', sala: 'Sala grupos', estado: 'Reservado' },
-  ]);
-
-  // Como los ids se repiten entre salas, un PC se identifica por sala + id
-  const mismoPc = (a, b) => a.id === b.id && a.sala === b.sala;
-
-  const cambiarEstadoPc = (pcObjetivo, nuevoEstado) => {
-    setListaPcs((prev) =>
-      prev.map((pc) => (mismoPc(pc, pcObjetivo) ? { ...pc, estado: nuevoEstado } : pc))
-    );
-  };
+function Salas({ listaPcs, cambiarEstadoPc }) {
 
   const [pcSeleccionado, setPcSeleccionado] = useState(null);
   const [busqueda, setBusqueda] = useState('');
@@ -86,7 +60,7 @@ function Salas() {
       ) : (
         SALAS.map((sala) => {
           const pcsDeSala = pcsFiltrados.filter((pc) => pc.sala === sala);
-          if (pcsDeSala.length === 0) return null; // oculta salas sin resultados
+          if (pcsDeSala.length === 0) return null;
 
           return (
             <section key={sala} className="sala-bloque">
