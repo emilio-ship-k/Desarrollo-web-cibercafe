@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import '../css/Salas.css';
 import Modal_Reserva from '../components/Modal_reserva';
-function Salas() {
- 
+
+function Salas({ listaPcs, cambiarEstadoPc }) {
+  
   const [pcSeleccionado, setPcSeleccionado] = useState(null);
 
-  // lista de PCs 
-  const [listaPcs, setListaPcs] = useState([
-    { id: 'PC-01', estado: 'disponible' }, { id: 'PC-02', estado: 'en_uso' },
-    { id: 'PC-03', estado: 'disponible' },{ id: 'PC-04', estado: 'disponible' }
-    ,{ id: 'PC-05', estado: 'en_uso' } ,{ id: 'PC-06', estado: 'en_uso' }
-  ]);
-
- const guardarReserva = (pc) => {
-    alert(`¡Reserva exitosa !`);
+  const guardarReserva = (pc) => {
+    
+    cambiarEstadoPc(pc.id, 'Reservado');
+    
+    alert(`¡Reserva exitosa para el ${pc.id}!`);
     setPcSeleccionado(null);
   };
 
@@ -21,14 +18,15 @@ function Salas() {
     <main className="salas-container">
       <h2>Salas y Puestos</h2>
       
-     
       <div className="grilla-pcs">
+        
         {listaPcs.map((pc) => (
-          <div key={pc.id} className={`puesto pc-${pc.estado}`} 
-            
-          
-              onClick={() => {
-              if (pc.estado === 'disponible') {
+          <div 
+            key={pc.id} 
+            className={`puesto pc-${pc.estado}`} 
+            onClick={() => {
+             
+              if (pc.estado === 'Disponible') {
                 setPcSeleccionado(pc);
               }
             }}
@@ -37,11 +35,10 @@ function Salas() {
           </div>
         ))}
       </div>
-
       
       {pcSeleccionado && (
         <Modal_Reserva 
-          pc = {pcSeleccionado}
+          pc={pcSeleccionado}
           funcionCerrar={() => setPcSeleccionado(null)}
           funcionConfirmar={guardarReserva}
         />
@@ -51,4 +48,3 @@ function Salas() {
 }
 
 export default Salas;
-

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../Css_componentes/BotoneraEstado.css';
 function BotoneraEstados({ estadoSeleccionado, onSeleccionar }) {
   return (
     <div className="d-flex flex-wrap gap-2 mb-3">
@@ -16,11 +16,11 @@ function BotoneraEstados({ estadoSeleccionado, onSeleccionar }) {
       <button
         type="button"
         className={`btn btn-sm fw-bold ${
-          estadoSeleccionado === 'En uso' ? 'btn-danger' : 'btn-outline-danger'
+          estadoSeleccionado === 'En_uso' ? 'btn-danger' : 'btn-outline-danger'
         }`}
-        onClick={() => onSeleccionar('En uso')}
+        onClick={() => onSeleccionar('En_uso')}
       >
-        ▶ Iniciar Sesión (En uso)
+        ▶ Iniciar Sesión (En_uso)
       </button>
 
       <button
@@ -36,9 +36,9 @@ function BotoneraEstados({ estadoSeleccionado, onSeleccionar }) {
       <button
         type="button"
         className={`btn btn-sm fw-bold ${
-          estadoSeleccionado === 'Fuera de servicio' ? 'btn-secondary' : 'btn-outline-secondary'
+          estadoSeleccionado === 'Fuera_de_servicio' ? 'btn-secondary' : 'btn-outline-secondary'
         }`}
-        onClick={() => onSeleccionar('Fuera de servicio')}
+        onClick={() => onSeleccionar('Fuera_de_servicio')}
       >
         Reportar Falla (Bloquear)
       </button>
