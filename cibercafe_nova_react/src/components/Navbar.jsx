@@ -2,26 +2,21 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logoImg from '../images/logo.png';
 
-
 function Navbar({ usuario, setUsuario }) {
-  // Estado para abrir o cerrar el popup de Login
   const [mostrarLogin, setMostrarLogin] = useState(false);
 
-  // Estados para capturar los datos del formulario
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rol, setRol] = useState('operador');
   const [terms, setTerms] = useState(false);
 
-  // Función que se ejecuta al presionar "Ingresar"
   const manejarIngreso = (e) => {
     e.preventDefault();
     setUsuario({ user, email, rol });
     setMostrarLogin(false);
   };
 
-  // Función para cerrar sesión
   const cerrarSesion = () => {
     setUsuario(null);
     setUser('');
@@ -63,6 +58,15 @@ function Navbar({ usuario, setUsuario }) {
               <NavLink className="nav-link" to="/salas" title="Salas">
                 Salas
               </NavLink>
+              <NavLink className="nav-link" to="/sesiones" title="Sesiones">
+                Sesiones
+              </NavLink>
+              <NavLink className="nav-link" to="/reservas" title="Reservas">
+                Reservas
+              </NavLink>
+              <NavLink className="nav-link" to="/incidencias" title="Incidencias">
+                Incidencias
+              </NavLink>
             </div>
 
             {/* Botón Login o Usuario conectado */}
@@ -93,7 +97,7 @@ function Navbar({ usuario, setUsuario }) {
         </nav>
       </header>
 
-      {/* Popup de Login (Se muestra cuando mostrarLogin es true) */}
+      {/* Popup de Login */}
       {mostrarLogin && (
         <div className="login_backdrop">
           <div className="login_1 shadow-lg">
@@ -124,7 +128,6 @@ function Navbar({ usuario, setUsuario }) {
                 />
               </div>
 
-              {/* Selector de Rol (Agregado para cumplir con roles del proyecto) */}
               <div className="mb-3">
                 <label className="form-label fw-bold small mb-1">
                   Rol de acceso:
@@ -152,13 +155,11 @@ function Navbar({ usuario, setUsuario }) {
                 />
               </div>
 
-              {/* Botón ingresar */}
               <div className="button">
                 <button type="submit">Ingresar</button>
               </div>
             </form>
 
-            {/* Botón cerrar pop up */}
             <button
               type="button"
               className="w-100 mt-2"
