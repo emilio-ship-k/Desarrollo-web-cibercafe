@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Salas.css';
 import Modal_Reserva from '../components/Modal_reserva';
 
 const SALAS = ['Sala general', 'Sala gaming', 'Sala grupos'];
 
-function Salas({ listaPcs, cambiarEstadoPc }) {
-
+function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
   const [pcSeleccionado, setPcSeleccionado] = useState(null);
   const [busqueda, setBusqueda] = useState('');
   const [filtroEstado, setFiltroEstado] = useState('todos');
@@ -13,6 +13,7 @@ function Salas({ listaPcs, cambiarEstadoPc }) {
 
   const estadosDisponibles = [...new Set(listaPcs.map((pc) => pc.estado))];
 
+  // Filtro simultaneo por buscador de texto, sala y estado
   const pcsFiltrados = listaPcs.filter((pc) => {
     const coincideTexto = pc.id.toLowerCase().includes(busqueda.trim().toLowerCase());
     const coincideEstado = filtroEstado === 'todos' || pc.estado === filtroEstado;
@@ -20,16 +21,35 @@ function Salas({ listaPcs, cambiarEstadoPc }) {
     return coincideTexto && coincideEstado && coincideSala;
   });
 
+  // Al hacer clic en un puesto verde, amarillo o rojo abrimos el modal
+  const manejarClickPuesto = (pc) => {
+    if (pc.estado === 'Fuera_de_servicio') {
+      alert(`El ${pc.id} (${pc.sala}) se encuentra fuera de servicio por problemas técnicos.`);
+      return;
+    }
+    setPcSeleccionado(pc);
+  };
+
+  // Confirmar reserva desde el modal
   const guardarReserva = (pc) => {
-    cambiarEstadoPc(pc, 'Reservado');
+    const nuevoMotivo = `Reserva anticipada registrada en ${pc.sala}`;
+    cambiarEstadoPc(pc, 'Reservado', nuevoMotivo);
     alert(`¡Reserva exitosa para el ${pc.id} (${pc.sala})!`);
     setPcSeleccionado(null);
+  };
+
+  // Abrir la ficha tecnica en detalles
+  const abrirDetalles = (pc) => {
+    if (setPcActual) {
+      setPcActual({ id: pc.id, sala: pc.sala });
+    }
   };
 
   return (
     <main className="salas-container">
       <h2>Salas y computadores</h2>
 
+      {/* Caja de filtros */}
       <div className="caja-filtros">
         <div className="barra-filtros">
           <input
@@ -49,12 +69,13 @@ function Salas({ listaPcs, cambiarEstadoPc }) {
           <select value={filtroEstado} onChange={(e) => setFiltroEstado(e.target.value)}>
             <option value="todos">Todos los estados</option>
             {estadosDisponibles.map((estado) => (
-              <option key={estado} value={estado}>{estado}</option>
+              <option key={estado} value={estado}>{estado.replace('_', ' ')}</option>
             ))}
           </select>
         </div>
       </div>
 
+      {/* Grilla dividida por sala */}
       {pcsFiltrados.length === 0 ? (
         <p>No se encontraron PCs con esos criterios.</p>
       ) : (
@@ -67,14 +88,23 @@ function Salas({ listaPcs, cambiarEstadoPc }) {
               <h3>{sala}</h3>
               <div className="grilla-pcs">
                 {pcsDeSala.map((pc) => (
-                  <div
-                    key={`${pc.sala}-${pc.id}`}
-                    className={`puesto pc-${pc.estado}`}
-                    onClick={() => {
-                      if (pc.estado === 'Disponible') setPcSeleccionado(pc);
-                    }}
-                  >
-                    {pc.id}
+                  <div key={`${pc.sala}-${pc.id}`} className="tarjeta-puesto-contenedor text-center">
+                    <div
+                      className={`puesto pc-${pc.estado}`}
+                      title={`${pc.id} (${pc.sala}) | Estado: ${pc.estado.replace('_', ' ')} | Motivo: ${pc.motivo}`}
+                      onClick={() => manejarClickPuesto(pc)}
+                      style={{ cursor: pc.estado !== 'Fuera_de_servicio' ? 'pointer' : 'not-allowed' }}
+                    >
+                      {pc.id}
+                    </div>
+
+                    <Link
+                      to="/detalles"
+                      className="link-detalle-puesto"
+                      onClick={() => abrirDetalles(pc)}
+                    >
+                      Ver detalle
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -83,6 +113,7 @@ function Salas({ listaPcs, cambiarEstadoPc }) {
         })
       )}
 
+      {/* Modal de reserva interactivo */}
       {pcSeleccionado && (
         <Modal_Reserva
           pc={pcSeleccionado}

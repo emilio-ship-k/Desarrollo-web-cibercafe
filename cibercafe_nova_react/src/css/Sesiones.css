@@ -80,3 +80,22 @@
   border-radius: 0.375rem;
   display: inline-block;
 }
+
+/* Ajuste para evitar desbordes en celulares */
+@media (max-width: 576px) {
+  .sesiones-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .tarjeta-sesion-header,
+  .tarjeta-reserva-header {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .tabla-base th,
+  .tabla-base td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}

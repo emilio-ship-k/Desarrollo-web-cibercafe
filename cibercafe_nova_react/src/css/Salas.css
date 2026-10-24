@@ -2,116 +2,39 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'system-ui';
+    font-family: 'system-ui', sans-serif;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(253, 253, 253);
-    margin: 0;
-    min-height: 100vh;
+/* Contenedor principal de la vista */
+.salas-container {
+    padding: 20px 20px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex: 1;
+    width: 100%;
 }
 
-.barra {
-    background-color: white;
-    border-bottom: 2px solid #4DA3FF;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px;
-}
-
-nav img {
-    width: 100px;
-}
-
-.encab {
-    display: flex;
-    gap: 40px;
-}
-
-.encab a {
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-}
-
-.encab a:hover {
-    border-bottom: 2px solid black;
-}
-
-@media (max-width: 430px) {
-    nav {
-        flex-direction: column;
-    }
-    nav .encab {
-        flex-direction: column;
-        margin-top: 20px;
-        text-align: center;
-    }
-    nav img {
-        width: 50px;
-    }
-}
-
-.sala-bloque {
-    margin-bottom: 1.5rem;
-}
-
-.sala-bloque h3 {
+.salas-container h2 {
+    font-size: 24px;
+    font-weight: 700;
     margin-bottom: 8px;
+    text-align: left;
 }
 
-.grilla-pcs,
-.puestos {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 12px 0 12px 16px;
-}
-
-.puesto {
-    width: 72px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    border-radius: 4px;
-    background-color: rgb(115, 185, 181);
-}
-
-.pc-Disponible { background-color: #2ecc71; cursor: pointer; }
-.pc-Reservado { background-color: #f1c40f; }
-.pc-En_uso { background-color: #e74c3c; }
-.pc-Fuera_de_servicio { background-color: #95a5a6; }
-
-.disponible { background-color: #2ecc71; }
-.reservado { background-color: #f1c40f; }
-.en_uso { background-color: #e74c3c; }
-.fuera_de_servicio { background-color: #95a5a6; }
-
+/* Caja superior de filtros */
 .caja-filtros {
     border: 2px solid #ccc;
     border-radius: 10px;
     padding: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     background-color: #f9f9f9;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .barra-filtros {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
 }
 
 .barra-filtros input,
@@ -119,53 +42,129 @@ nav img {
     padding: 8px 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #ffffff;
 }
 
 .barra-filtros input {
     flex: 1;
-    min-width: 160px;
+    min-width: 180px;
 }
 
-p {
-    color: rgb(0, 0, 0);
-    font-weight: 400;
+/* Bloques por cada sala */
+.sala-bloque {
+    margin-bottom: 2rem;
+    text-align: left;
 }
 
-main {
-    padding: 20px 20px 60px;
-    flex: 1;
+.sala-bloque h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #e5e4e7;
+    padding-bottom: 6px;
+    color: #333333;
 }
 
-footer {
-    background: #111;
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-footer div {
-    margin-left: 30px;
-}
-
-footer h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-decoration-line: underline;
-    color: white;
-}
-
-footer p {
-    font-weight: bold;
-    color: white;
-}
-
-footer p a {
-    text-decoration: none;
-    color: #4DA3FF;
-}
-
-.cr {
+/* Grilla de computadores */
+.grilla-pcs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-top: 10px;
-    font-weight: normal;
+}
+
+/* Contenedor de cada puesto y su enlace */
+.tarjeta-puesto-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Recuadro del computador */
+.puesto {
+    width: 80px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    user-select: none;
+}
+
+.puesto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Colores de estado del equipo */
+.pc-Disponible {
+    background-color: #2ecc71;
+    cursor: pointer;
+}
+
+.pc-Reservado {
+    background-color: #f1c40f;
+    color: #222222;
+    cursor: pointer;
+}
+
+.pc-En_uso {
+    background-color: #e74c3c;
+    cursor: pointer;
+}
+
+.pc-Fuera_de_servicio {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+/* Enlace a ficha tecnica en detalles */
+.link-detalle-puesto {
+    font-size: 11px;
+    font-weight: 600;
+    color: #4DA3FF;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link-detalle-puesto:hover {
+    text-decoration: underline;
+    color: #1677F2;
+}
+
+/* Ajustes responsivos para celulares (390 px) y tablets (768 px) */
+@media (max-width: 600px) {
+    .salas-container {
+        padding: 15px 12px 40px;
+    }
+
+    .barra-filtros {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .barra-filtros input,
+    .barra-filtros select {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .grilla-pcs {
+        gap: 12px;
+        justify-content: flex-start;
+    }
+
+    .puesto {
+        width: 72px;
+        height: 52px;
+        font-size: 13px;
+    }
 }

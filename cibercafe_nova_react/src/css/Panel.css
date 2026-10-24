@@ -192,3 +192,17 @@ th {
         flex: 1 1 140px;
     }
 }
+
+/* Estilo para los enlaces de las tarjetas superiores */
+.link-resum {
+    text-decoration: none;
+    color: inherit;
+    display: contents;
+}
+
+.link-resum:hover .resum {
+    transform: translateY(-2px);
+    border-color: #4DA3FF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
