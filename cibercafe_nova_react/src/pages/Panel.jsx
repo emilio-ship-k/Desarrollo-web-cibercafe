@@ -5,9 +5,9 @@ import '../css/Panel.css';
 function Panel({ setPcActualId }) {
   // Contadores de disponibilidad
   const [resumen] = useState({
-    disponibles: 11,
-    enUso: 10,
-    reservas: 7,
+    disponibles: 23,
+    enUso: 3,
+    reservas: 2,
     fueraServicio: 2
   });
 

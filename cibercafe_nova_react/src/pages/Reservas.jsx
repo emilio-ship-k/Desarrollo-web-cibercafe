@@ -4,30 +4,31 @@ import TablaReservas from '../components/TablaReservas';
 import '../css/Sesiones.css';
 
 function Reservas() {
+  // Reservas iniciales coincidentes con Operativos (PC-08 y PC-19)
   const [reservas, setReservas] = useState([
     {
       id: 101,
-      puesto: 'Pc 16 (Gamer)',
-      cliente: 'Jonathan Nuñez',
-      fecha: '2026-10-23',
-      horaInicio: '19:00',
-      horaFin: '21:00',
+      puesto: 'Pc 08 (General)',
+      cliente: 'Sebastián Quezada',
+      fecha: '2026-10-24',
+      horaInicio: '18:00',
+      horaFin: '20:00',
       estado: 'Confirmada'
     },
     {
       id: 102,
-      puesto: 'Pc 05 (general)',
-      cliente: 'Camila Rojas',
-      fecha: '2026-10-23',
-      horaInicio: '18:30',
-      horaFin: '20:00',
-      estado: 'Pendiente'
+      puesto: 'Pc 19 (Gamer)',
+      cliente: 'Jonathan Nuñez',
+      fecha: '2026-10-24',
+      horaInicio: '19:00',
+      horaFin: '21:00',
+      estado: 'Confirmada'
     }
   ]);
 
   const [cliente, setCliente] = useState('');
-  const [puesto, setPuesto] = useState('Pc 16 (Gamer)');
-  const [fecha, setFecha] = useState('2026-10-23');
+  const [puesto, setPuesto] = useState('Pc 01 (General)');
+  const [fecha, setFecha] = useState('2026-10-24');
   const [horaInicio, setHoraInicio] = useState('17:00');
   const [horaFin, setHoraFin] = useState('18:00');
   const [errorValidacion, setErrorValidacion] = useState('');
@@ -125,10 +126,22 @@ function Reservas() {
                   value={puesto}
                   onChange={(e) => setPuesto(e.target.value)}
                 >
-                  <option value="Pc 02 (general)">Pc 02 (general)</option>
-                  <option value="Pc 05 (general)">Pc 05 (general)</option>
+                  <option value="Pc 01 (General)">Pc 01 (General)</option>
+                  <option value="Pc 03 (General)">Pc 03 (General)</option>
+                  <option value="Pc 04 (General)">Pc 04 (General)</option>
+                  <option value="Pc 06 (General)">Pc 06 (General)</option>
+                  <option value="Pc 07 (General)">Pc 07 (General)</option>
+                  <option value="Pc 08 (General)">Pc 08 (General)</option>
+                  <option value="Pc 09 (General)">Pc 09 (General)</option>
+                  <option value="Pc 10 (General)">Pc 10 (General)</option>
+                  <option value="Pc 11 (Gaming)">Pc 11 (Gaming)</option>
                   <option value="Pc 16 (Gamer)">Pc 16 (Gamer)</option>
+                  <option value="Pc 17 (Gaming)">Pc 17 (Gaming)</option>
+                  <option value="Pc 19 (Gamer)">Pc 19 (Gamer)</option>
+                  <option value="Pc 21 (Grupos)">Pc 21 (Grupos)</option>
                   <option value="Pc 23 (Grupal)">Pc 23 (Grupal)</option>
+                  <option value="Pc 24 (Grupos)">Pc 24 (Grupos)</option>
+                  <option value="Pc 25 (Grupos)">Pc 25 (Grupos)</option>
                 </select>
               </div>
 

@@ -14,11 +14,11 @@ function Sesiones() {
   ]);
 
   const [proximasReservas] = useState([
-    { id: 101, puesto: 'Pc 16 (Gamer)', cliente: 'Jonathan Nuñez', horario: '19:00 - 21:00 hrs', estado: 'Confirmada' },
-    { id: 102, puesto: 'Pc 05 (general)', cliente: 'Camila Rojas', horario: '18:30 - 20:00 hrs', estado: 'Confirmada' }
+    { id: 101, puesto: 'Pc 08 (General)', cliente: 'Sebastián Quezada', horario: '18:00 - 20:00 hrs', estado: 'Confirmada' },
+    { id: 102, puesto: 'Pc 19 (Gamer)', cliente: 'Jonathan Nuñez', horario: '19:00 - 21:00 hrs', estado: 'Confirmada' }
   ]);
 
-  const [nuevoEquipo, setNuevoEquipo] = useState('Pc 05 (general)');
+  const [nuevoEquipo, setNuevoEquipo] = useState('Pc 01 (General)');
   const [nuevoCliente, setNuevoCliente] = useState('');
   const [nuevasHoras, setNuevasHoras] = useState(1);
   const [errorValidacion, setErrorValidacion] = useState('');
@@ -52,7 +52,11 @@ function Sesiones() {
   };
 
   const extenderTiempo = (id) => {
-    setSesiones(sesiones.map((s) => s.id === id ? { ...s, horas: s.horas + 0.5, tiempoTexto: `${s.horas + 0.5} hrs` } : s));
+    setSesiones(
+      sesiones.map((s) =>
+        s.id === id ? { ...s, horas: s.horas + 0.5, tiempoTexto: `${s.horas + 0.5} hrs` } : s
+      )
+    );
     setMensajeAlerta('Se agregaron 30 minutos a la sesión seleccionada.');
   };
 
@@ -114,10 +118,18 @@ function Sesiones() {
               <div className="col-12 col-md-4">
                 <label className="form-label small fw-bold mb-1">Puesto disponible:</label>
                 <select className="form-select form-select-sm" value={nuevoEquipo} onChange={(e) => setNuevoEquipo(e.target.value)}>
-                  <option value="Pc 05 (general)">Pc 05 (general)</option>
-                  <option value="Pc 10 (general)">Pc 10 (general)</option>
-                  <option value="Pc 17 (Gamer)">Pc 17 (Gamer)</option>
-                  <option value="Pc 25 (Grupal)">Pc 25 (Grupal)</option>
+                  <option value="Pc 01 (General)">Pc 01 (General)</option>
+                  <option value="Pc 03 (General)">Pc 03 (General)</option>
+                  <option value="Pc 04 (General)">Pc 04 (General)</option>
+                  <option value="Pc 06 (General)">Pc 06 (General)</option>
+                  <option value="Pc 07 (General)">Pc 07 (General)</option>
+                  <option value="Pc 09 (General)">Pc 09 (General)</option>
+                  <option value="Pc 10 (General)">Pc 10 (General)</option>
+                  <option value="Pc 11 (Gaming)">Pc 11 (Gaming)</option>
+                  <option value="Pc 17 (Gaming)">Pc 17 (Gaming)</option>
+                  <option value="Pc 21 (Grupos)">Pc 21 (Grupos)</option>
+                  <option value="Pc 24 (Grupos)">Pc 24 (Grupos)</option>
+                  <option value="Pc 25 (Grupos)">Pc 25 (Grupos)</option>
                 </select>
               </div>
               <div className="col-12 col-md-4">
