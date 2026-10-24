@@ -25,17 +25,16 @@ function Home() {
         </p>
       </section>
 
-      {/* Sección de descripción de operaciones */}
       <section className="detalles">
         <h2>Sistema de Gestión y Operaciones</h2>
         <p>
           Accede a los módulos del local para monitorear turnos, consultar salas o
-          revisar especificaciones técnicas.
+          revisar el estado operativo.
         </p>
       </section>
 
       <section className="row g-4 mb-5">
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-md-6 col-lg-4">
           <article className="box h-100">
             <div>
               <h3>Panel Operativo</h3>
@@ -45,33 +44,59 @@ function Home() {
                 del local.
               </p>
             </div>
-            <Link to="/panel">Entrar al panel -&gt;</Link>
+            <Link to="/panel">Ver panel operativo -&gt;</Link>
           </article>
         </div>
 
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-md-6 col-lg-4">
           <article className="box h-100">
             <div>
-              <h3>Salas y Puesto</h3>
+              <h3>Salas y Puestos</h3>
               <p>
                 Visualiza el mapa de distribución de los 30 computadores repartidos
-                entre la Zona General, la Zona Gamer y Sala Grupal.
+                entre la Zona General, la Zona Gamer y la Sala Grupal.
               </p>
             </div>
-            <Link to="/salas">Entrar al panel -&gt;</Link>
+            <Link to="/salas">Ver mapa de salas -&gt;</Link>
           </article>
         </div>
 
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-md-6 col-lg-4">
           <article className="box h-100">
             <div>
-              <h3>Detalle del equipo</h3>
+              <h3>Gestión de Sesiones</h3>
               <p>
-                Consulta la planilla técnica de los componentes del computador
-                (CPU, GPU, RAM), turnos activos y alertas técnicas asociadas.
+                Inicia turnos de uso en puestos libres, extiende tiempos de juego
+                y realiza el cálculo final con cierre de cobro.
               </p>
             </div>
-            <Link to="/detalles">Entrar al panel -&gt;</Link>
+            <Link to="/sesiones">Gestionar turnos -&gt;</Link>
+          </article>
+        </div>
+
+        <div className="col-12 col-md-6 col-lg-4">
+          <article className="box h-100">
+            <div>
+              <h3>Reserva de Puestos</h3>
+              <p>
+                Agenda computadores por bloque horario, revisa la lista de espera
+                y evita solapamientos o conflictos de turnos.
+              </p>
+            </div>
+            <Link to="/reservas">Agendar reserva -&gt;</Link>
+          </article>
+        </div>
+
+        <div className="col-12 col-md-6 col-lg-4">
+          <article className="box h-100">
+            <div>
+              <h3>Registro de Incidencias</h3>
+              <p>
+                Reporta fallas técnicas de hardware o periféricos, bloquea puestos
+                averiados y registra su posterior reparación.
+              </p>
+            </div>
+            <Link to="/incidencias">Reportar fallas -&gt;</Link>
           </article>
         </div>
       </section>

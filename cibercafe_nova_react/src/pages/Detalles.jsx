@@ -17,7 +17,6 @@ function Detalles({ equipo, cambiarEstadoPc }) {
     );
   }
 
-  // Estilo de la píldora según el estado
   const obtenerColorBadge = () => {
     if (equipo.estado === 'Disponible') return 'estado-badge disponible-det';
     if (equipo.estado === 'En_uso') return 'estado-badge uso';
@@ -25,7 +24,6 @@ function Detalles({ equipo, cambiarEstadoPc }) {
     return 'estado-badge fuera-servicio-det';
   };
 
-  // Guardar el nuevo estado y motivo obligatorio
   const manejarGuardar = (e) => {
     e.preventDefault();
 
@@ -84,7 +82,6 @@ function Detalles({ equipo, cambiarEstadoPc }) {
           </div>
         )}
 
-        {/* Formulario de cambio de estado de la rúbrica */}
         <section className="alerta-detalle">
           <h5 className="fw-bold mb-2">Cambiar Estado Operativo</h5>
           <form onSubmit={manejarGuardar}>

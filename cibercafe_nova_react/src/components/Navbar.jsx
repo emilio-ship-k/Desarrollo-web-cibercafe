@@ -20,7 +20,6 @@ function Navbar({ usuario, setUsuario }) {
 
   const manejarRegistro = (e) => {
     e.preventDefault();
-   // base de datos simulada  
     console.log("Guardando en BD:", { user, email, password, rol }); 
     
     setMostrarRegistro(false);
