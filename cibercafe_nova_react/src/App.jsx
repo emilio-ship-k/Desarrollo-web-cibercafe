@@ -14,7 +14,7 @@ function App() {
   const [usuario, setUsuario] = useState(null);
   const [pcActual, setPcActual] = useState({ id: 'PC-02', sala: 'Sala gaming' });
 
-  // Listado de computadores organizados por sala con sus datos tecnicos y motivos
+ 
   const [listaPcs, setListaPcs] = useState([
     { id: 'PC-01', sala: 'Sala general', nombre: 'Pc 01 (General)', estado: 'Disponible', motivo: 'Equipo libre y operativo', hardware: 'Intel i5 12400, 16GB RAM, GTX 1660, Monitor 75hz', sesionActual: 'Sin sesión activa', reservaProxima: 'Sin reservas programadas', tarifa: '$2.500 / hora' },
     { id: 'PC-02', sala: 'Sala general', nombre: 'Pc 02 (General)', estado: 'En_uso', motivo: 'Sesión activa de Sebastián Quezada', hardware: 'Intel i5 12400, 16GB RAM, GTX 1660, Monitor 75hz', sesionActual: 'Iniciada a las 16:15 hrs por Sebastián Quezada', reservaProxima: '18:00 hrs - 20:00 hrs', tarifa: '$2.500 / hora' },
@@ -32,7 +32,7 @@ function App() {
     { id: 'PC-04', sala: 'Sala grupos', nombre: 'Pc 04 (Grupos)', estado: 'Reservado', motivo: 'Torneo programado turno noche', hardware: 'AMD Ryzen 7 5800X, 32GB RAM, RTX 3070, Monitor 144hz', sesionActual: 'Reservado para partidas en equipo', reservaProxima: '20:00 hrs - 22:00 hrs', tarifa: '$3.500 / hora' },
   ]);
 
-  // Actualiza el estado y opcionalmente el motivo usando sala + id
+  
   const cambiarEstadoPc = (pcObjetivo, nuevoEstado, nuevoMotivo) => {
     setListaPcs((prev) =>
       prev.map((pc) =>
@@ -75,8 +75,8 @@ function App() {
         />
         <Route path="/sesiones" element={<Sesiones />} />
         <Route path="/reservas" element={<Reservas />} />
-        <Route path="/incidencias" element={<Incidencias />} />
-      </Routes>
+        <Route path="/incidencias" element={<Incidencias listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} />} />
+        </Routes>
 
       <Footer />
     </BrowserRouter>

@@ -3,27 +3,12 @@ import { Link } from 'react-router-dom';
 import TablaIncidencias from '../components/TablaIncidencias';
 import '../css/Sesiones.css';
 
-function Incidencias() {
-  const [incidencias, setIncidencias] = useState([
-    {
-      id: 1,
-      puesto: 'Pc 16 (Gamer)',
-      tipo: 'Periféricos',
-      descripcion: 'Teclado mecánico pierde conexión intermitente en puerto USB frontal.',
-      prioridad: 'Media',
-      estado: 'Abierta'
-    },
-    {
-      id: 2,
-      puesto: 'Pc 02 (general)',
-      tipo: 'Software',
-      descripcion: 'Error al iniciar sesión de Steam tras última actualización.',
-      prioridad: 'Baja',
-      estado: 'Resuelta'
-    }
-  ]);
+function Incidencias({ listaPcs, cambiarEstadoPc }) {
+  const [incidencias, setIncidencias] = useState([]);
 
-  const [puesto, setPuesto] = useState('Pc 16 (Gamer)');
+  // Usamos un formato "sala|id" para identificar de forma única al equipo en el select
+  const pcInicial = listaPcs.length > 0 ? `${listaPcs[0].sala}|${listaPcs[0].id}` : '';
+  const [puestoVal, setPuestoVal] = useState(pcInicial);
   const [tipo, setTipo] = useState('Hardware');
   const [prioridad, setPrioridad] = useState('Media');
   const [descripcion, setDescripcion] = useState('');
@@ -38,9 +23,19 @@ function Incidencias() {
       return;
     }
 
+    const [sala, id] = puestoVal.split('|');
+    const pcSeleccionado = listaPcs.find((pc) => pc.id === id && pc.sala === sala);
+
+    if (!pcSeleccionado) {
+      setErrorValidacion('Error: No se encontró el PC seleccionado.');
+      return;
+    }
+
     const nueva = {
       id: Date.now(),
-      puesto,
+      puesto: pcSeleccionado.nombre,
+      pcId: pcSeleccionado.id,
+      pcSala: pcSeleccionado.sala,
       tipo,
       prioridad,
       descripcion: descripcion.trim(),
@@ -50,16 +45,31 @@ function Incidencias() {
     setIncidencias([nueva, ...incidencias]);
     setDescripcion('');
     setErrorValidacion('');
-    setMensajeExito(`Incidencia reportada para ${nueva.puesto}. Puesto marcado para revisión.`);
+    
+    // Cambia el estado del PC a Fuera de servicio en toda la plataforma
+    cambiarEstadoPc({ id: pcSeleccionado.id, sala: pcSeleccionado.sala }, 'Fuera_de_servicio', descripcion.trim());
+    
+    setMensajeExito(`Incidencia reportada en ${nueva.puesto}. El equipo se marcó como Fuera de servicio.`);
   };
 
-  const marcarResuelta = (id) => {
+  const marcarResuelta = (idIncidencia) => {
+    const incidencia = incidencias.find((inc) => inc.id === idIncidencia);
+    
     setIncidencias(
       incidencias.map((inc) =>
-        inc.id === id ? { ...inc, estado: 'Resuelta' } : inc
+        inc.id === idIncidencia ? { ...inc, estado: 'Resuelta' } : inc
       )
     );
-    setMensajeExito('Incidencia marcada como resuelta. El equipo puede volver a habilitarse.');
+
+    if (incidencia) {
+      // Regresa el equipo a estado Disponible
+      cambiarEstadoPc(
+        { id: incidencia.pcId, sala: incidencia.pcSala }, 
+        'Disponible', 
+        'Equipo libre y operativo'
+      );
+      setMensajeExito(`Incidencia de ${incidencia.puesto} resuelta. El equipo vuelve a estar Disponible.`);
+    }
   };
 
   return (
@@ -70,7 +80,7 @@ function Incidencias() {
           <p className="text-secondary mb-0">Control de mantenimiento técnico y problemas de equipos</p>
         </div>
         <Link to="/panel" className="btn btn-outline-secondary btn-sm">
-          &lt;- Volver al Panel
+          &lt; Volver al Panel
         </Link>
       </div>
 
@@ -97,13 +107,14 @@ function Incidencias() {
                 <label className="form-label small fw-bold mb-1">Puesto afectado:</label>
                 <select
                   className="form-select form-select-sm"
-                  value={puesto}
-                  onChange={(e) => setPuesto(e.target.value)}
+                  value={puestoVal}
+                  onChange={(e) => setPuestoVal(e.target.value)}
                 >
-                  <option value="Pc 02 (general)">Pc 02 (general)</option>
-                  <option value="Pc 05 (general)">Pc 05 (general)</option>
-                  <option value="Pc 16 (Gamer)">Pc 16 (Gamer)</option>
-                  <option value="Pc 23 (Grupal)">Pc 23 (Grupal)</option>
+                  {listaPcs.map((pc) => (
+                    <option key={`${pc.sala}|${pc.id}`} value={`${pc.sala}|${pc.id}`}>
+                      {pc.nombre} - {pc.estado}
+                    </option>
+                  ))}
                 </select>
               </div>
 
