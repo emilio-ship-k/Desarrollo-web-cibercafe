@@ -7,33 +7,58 @@ import Salas from './pages/Salas';
 import Panel from './pages/Panel'; 
 import Detalles from './pages/Detalles';
 import Sesiones from './pages/Sesiones';
-import Reservas from './pages/Reservas';
 import Incidencias from './pages/Incidencias';
 
+
 function App() {
-  // Guarda el usuario cuando inicia sesión en el Login
+ 
   const [usuario, setUsuario] = useState(null);
+
+ 
+  const [listaPcs, setListaPcs] = useState([
+    { id: 'PC-01', estado: 'Disponible' },
+    { id: 'PC-02', estado: 'En_uso' },
+    { id: 'PC-03', estado: 'Reservado' },
+    { id: 'PC-04', estado: 'Disponible' },
+    { id: 'PC-05', estado: 'En_uso' },
+    { id: 'PC-06', estado: 'Fuera_de_servicio' }
+  ]);
+
+
+  const cambiarEstadoPc = (idPc, nuevoEstado) => {
+    const nuevaLista = listaPcs.map((pc) => {
+      if (pc.id === idPc) {
+        return { ...pc, estado: nuevoEstado };
+      }
+      return pc;
+    });
+    setListaPcs(nuevaLista);
+  };
 
   return (
     <BrowserRouter>
-      {/* Barra superior presente en toda la web */}
+     
       <Navbar usuario={usuario} setUsuario={setUsuario} />
 
-      {/* Contenido de la página actual */}
+      
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/salas" element={<Salas />} />
+        
+        
+        <Route 
+          path="/salas" 
+          element={<Salas listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} />} 
+        />
+        
         <Route path="/panel" element={<Panel />} /> 
         <Route path="/detalles" element={<Detalles />} />
         <Route path="/sesiones" element={<Sesiones />} />
-        <Route path="/reservas" element={<Reservas />} />
         <Route path="/incidencias" element={<Incidencias />} />
       </Routes>
 
-      {/* Pie de página presente en toda la web */}
+      
       <Footer />
     </BrowserRouter>
   );
 }
 
-export default App;
