@@ -1,11 +1,10 @@
-* {
+*, *::before, *::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'system-ui', sans-serif;
 }
 
-/* Color del cuerpo */
 body {
     background-color: rgb(253, 253, 253);
 }
@@ -17,17 +16,14 @@ body {
     width: 100%;
 }
 
-
-
 .subtitulo-panel {
     text-align: center;
     font-size: 18px;
     font-weight: 600;
     color: #444;
-    margin-bottom: 30PX;
+    margin-bottom: 30px;
 }
 
-/* Apariencia del contenedor de tarjetas de resumen */
 #flexbox_resumen {
     display: flex;
     gap: 15px;
@@ -36,7 +32,6 @@ body {
     margin: 15px 30px 30px 30px;
 }
 
-/* Tarjetas individuales de disponibilidad general */
 .resum {
     background-color: white;
     flex: 1 1 200px;
@@ -68,17 +63,14 @@ body {
 .tomate { color: tomato; }
 .gris { color: #6c757d; }
 
-/* Separación de las dos columnas principales */
 .centro {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 25px;
-    /* Evita que la columna de incidencias se estire hacia abajo */
     align-items: start;
     margin: 0 30px 40px 30px;
 }
 
-/* Paneles blancos (Tablas e Incidencias) */
 .panel {
     background-color: white;
     padding: 22px;
@@ -96,10 +88,10 @@ body {
     margin-bottom: 12px;
 }
 
-/* Contenedor para que la tabla deslice horizontalmente en celular sin salirse */
 .tabla-responsive {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 table {
@@ -125,84 +117,5 @@ th {
 }
 
 .link-puesto:hover {
-    color: #4DA3FF;
     text-decoration: underline;
-}
-
-/* Etiquetas de estado */
-.badge-nova {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.activa {
-    background-color: rgb(232, 157, 157);
-    color: rgb(113, 29, 29);
-}
-
-.modalidad {
-    background-color: rgb(214, 214, 32);
-    color: rgb(132, 79, 25);
-}
-
-/* Lista de incidencias */
-.list_incid {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-}
-
-.item_incid {
-    border-left: 4px solid rgb(233, 100, 100);
-    background: rgb(235, 209, 209);
-    padding: 10px 12px;
-    border-radius: 0 6px 6px 0;
-    font-size: 14px;
-}
-
-.item_incid strong {
-    display: block;
-    margin-bottom: 4px;
-    color: rgb(214, 0, 0);
-}
-
-.item_incid p {
-    margin: 0;
-    color: #222;
-}
-
-/* Diseño Responsivo para móviles y tablets */
-@media (max-width: 768px) {
-    .centro {
-        grid-template-columns: 1fr;
-        margin: 0 15px 30px 15px;
-    }
-
-    #flexbox_resumen {
-        margin: 15px;
-    }
-
-    .resum {
-        flex: 1 1 140px;
-    }
-}
-
-/* Estilo para los enlaces de las tarjetas superiores */
-.link-resum {
-    text-decoration: none;
-    color: inherit;
-    display: contents;
-}
-
-.link-resum:hover .resum {
-    transform: translateY(-2px);
-    border-color: #4DA3FF;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease-in-out;
 }

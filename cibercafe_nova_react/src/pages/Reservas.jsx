@@ -4,7 +4,7 @@ import TablaReservas from '../components/TablaReservas';
 import '../css/Sesiones.css';
 
 function Reservas() {
-  // Reservas iniciales coincidentes con Operativos (PC-08 y PC-19)
+ 
   const [reservas, setReservas] = useState([
     {
       id: 101,
