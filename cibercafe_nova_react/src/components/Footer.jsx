@@ -1,7 +1,10 @@
+
+import '../css/index.css';
 function Footer() {
+
   return (
     <footer>
-      <div className="container">
+      <div className="footer-container">
         <h4>Contactos</h4>
         <p>
           Correo: <a href="mailto:CibercafeNova@ciber.cl">CibercafeNova@ciber.cl</a>
