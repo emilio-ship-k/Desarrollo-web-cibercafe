@@ -30,7 +30,7 @@ function Panel({ setPcActualId }) {
     { equipo: 'Pc 22 - Zona Gamer', detalle: 'Teclado mecánico con tecla espaciadora bloqueada. Requiere cambio de repuesto.' }
   ]);
 
-  
+  // Al hacer clic en un puesto de la tabla guardamos su id para la vista de detalles
   const seleccionarEquipo = (id) => {
     if (setPcActualId) {
       setPcActualId(id);
@@ -38,51 +38,51 @@ function Panel({ setPcActualId }) {
   };
 
   return (
-    <main className="panel-main container-fluid px-2 px-md-3">
-      <h3 className="subtitulo-panel mt-3 mb-4 fw-bold fs-4">Disponibilidad general</h3>
+    <main className="panel-main">
+      <h3 className="subtitulo-panel">Disponibilidad general</h3>
 
-    
-      <section id="flexbox_resumen" className="d-flex flex-wrap gap-3 mb-4">
-        <Link to="/salas" className="link-resum flex-fill text-decoration-none" title="Ir a Salas y Puestos">
-          <article className="resum card shadow-sm text-center p-3 h-100">
-            <h4 className="fs-6 text-muted mb-2">Disponible</h4>
-            <p className="verde fs-3 fw-bold mb-0 text-success">{resumen.disponibles}</p>
+      {/* Tarjetas superiores con enlaces directos a cada seccion */}
+      <section id="flexbox_resumen">
+        <Link to="/salas" className="link-resum" title="Ir a Salas y Puestos">
+          <article className="resum">
+            <h4>Disponible</h4>
+            <p className="verde">{resumen.disponibles}</p>
           </article>
         </Link>
 
-        <Link to="/sesiones" className="link-resum flex-fill text-decoration-none" title="Ir a Gestión de Sesiones">
-          <article className="resum card shadow-sm text-center p-3 h-100">
-            <h4 className="fs-6 text-muted mb-2">Sesiones de uso</h4>
-            <p className="rojo fs-3 fw-bold mb-0 text-danger">{resumen.enUso}</p>
+        <Link to="/sesiones" className="link-resum" title="Ir a Gestión de Sesiones">
+          <article className="resum">
+            <h4>Sesiones de uso</h4>
+            <p className="rojo">{resumen.enUso}</p>
           </article>
         </Link>
 
-        <Link to="/reservas" className="link-resum flex-fill text-decoration-none" title="Ir a Reserva de Puestos">
-          <article className="resum card shadow-sm text-center p-3 h-100">
-            <h4 className="fs-6 text-muted mb-2">Reserva Próxima</h4>
-            <p className="tomate fs-3 fw-bold mb-0 text-warning">{resumen.reservas}</p>
+        <Link to="/reservas" className="link-resum" title="Ir a Reserva de Puestos">
+          <article className="resum">
+            <h4>Reserva Próxima</h4>
+            <p className="tomate">{resumen.reservas}</p>
           </article>
         </Link>
 
-        <Link to="/incidencias" className="link-resum flex-fill text-decoration-none" title="Ir a Registro de Incidencias">
-          <article className="resum card shadow-sm text-center p-3 h-100">
-            <h4 className="fs-6 text-muted mb-2">Fuera de servicio</h4>
-            <p className="gris fs-3 fw-bold mb-0 text-secondary">{resumen.fueraServicio}</p>
+        <Link to="/incidencias" className="link-resum" title="Ir a Registro de Incidencias">
+          <article className="resum">
+            <h4>Fuera de servicio</h4>
+            <p className="gris">{resumen.fueraServicio}</p>
           </article>
         </Link>
       </section>
 
-      <div className="centro row g-4">
-        <div className="col-12 col-lg-8">
-         
-          <section className="panel card shadow-sm p-3 mb-4 border-0">
-            <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-              <h3 className="border-0 mb-0 p-0 fs-5 fw-bold">Disponibilidad general (En curso)</h3>
-              <Link to="/sesiones" className="btn btn-sm btn-outline-secondary">Ver sesiones -&gt;</Link>
+      <div className="centro">
+        <div>
+          {/* Bloque de sesiones activas */}
+          <section className="panel">
+            <div className="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+              <h3 className="border-0 mb-0 p-0">Disponibilidad general (En curso)</h3>
+              <Link to="/sesiones" className="btn btn-sm btn-outline-secondary py-0">Ver sesiones -&gt;</Link>
             </div>
-            <div className="table-responsive">
-              <table className="table table-hover align-middle mb-0">
-                <thead className="table-light">
+            <div className="tabla-responsive">
+              <table>
+                <thead>
                   <tr>
                     <th>Puesto</th>
                     <th>Cliente</th>
@@ -97,17 +97,17 @@ function Panel({ setPcActualId }) {
                       <td>
                         <Link
                           to="/detalles"
-                          className="link-puesto text-decoration-none fw-bold"
+                          className="link-puesto"
                           onClick={() => seleccionarEquipo(sesion.id)}
                         >
-                          {sesion.puesto}
-                        </Link> <span className="text-muted small">({sesion.zona})</span>
+                          <strong>{sesion.puesto}</strong>
+                        </Link> ({sesion.zona})
                       </td>
                       <td>{sesion.cliente}</td>
                       <td>{sesion.inicio}</td>
                       <td>{sesion.tiempo}</td>
                       <td>
-                        <span className="badge bg-success">{sesion.estado}</span>
+                        <span className="badge-nova activa">{sesion.estado}</span>
                       </td>
                     </tr>
                   ))}
@@ -116,15 +116,15 @@ function Panel({ setPcActualId }) {
             </div>
           </section>
 
-     
-          <section className="panel card shadow-sm p-3 border-0">
-            <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-              <h3 className="border-0 mb-0 p-0 fs-5 fw-bold">Próximas Reservas de la Jornada</h3>
-              <Link to="/reservas" className="btn btn-sm btn-outline-secondary">Ver reservas -&gt;</Link>
+          {/* Bloque de reservas del dia */}
+          <section className="panel">
+            <div className="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+              <h3 className="border-0 mb-0 p-0">Próximas Reservas de la Jornada</h3>
+              <Link to="/reservas" className="btn btn-sm btn-outline-secondary py-0">Ver reservas -&gt;</Link>
             </div>
-            <div className="table-responsive">
-              <table className="table table-hover align-middle mb-0">
-                <thead className="table-light">
+            <div className="tabla-responsive">
+              <table>
+                <thead>
                   <tr>
                     <th>Horario</th>
                     <th>Puesto Asignado</th>
@@ -136,10 +136,10 @@ function Panel({ setPcActualId }) {
                   {proximasReservas.map((reserva, index) => (
                     <tr key={index}>
                       <td>{reserva.horario}</td>
-                      <td><strong>{reserva.puesto}</strong> <span className="text-muted small">({reserva.zona})</span></td>
+                      <td><strong>{reserva.puesto}</strong> ({reserva.zona})</td>
                       <td>{reserva.cliente}</td>
                       <td>
-                        <span className="badge bg-primary">{reserva.modalidad}</span>
+                        <span className="badge-nova modalidad">{reserva.modalidad}</span>
                       </td>
                     </tr>
                   ))}
@@ -149,23 +149,21 @@ function Panel({ setPcActualId }) {
           </section>
         </div>
 
-       
-        <div className="col-12 col-lg-4">
-          <section className="panel card shadow-sm p-3 border-0 h-100">
-            <div className="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-              <h3 className="border-0 mb-0 p-0 fs-5 fw-bold">Incidencias Abiertas</h3>
-              <Link to="/incidencias" className="btn btn-sm btn-outline-secondary">Reportar -&gt;</Link>
-            </div>
-            <ul className="list-group list-group-flush">
-              {incidencias.map((inc, index) => (
-                <li key={index} className="list-group-item px-0 py-3">
-                  <strong className="d-block mb-1 text-danger">{inc.equipo}</strong>
-                  <p className="mb-0 text-muted small">{inc.detalle}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        </div>
+        {/* Bloque lateral de fallas reportadas */}
+        <section className="panel">
+          <div className="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+            <h3 className="border-0 mb-0 p-0">Incidencias Abiertas</h3>
+            <Link to="/incidencias" className="btn btn-sm btn-outline-secondary py-0">Reportar -&gt;</Link>
+          </div>
+          <ul className="list_incid">
+            {incidencias.map((inc, index) => (
+              <li key={index} className="item_incid">
+                <strong>{inc.equipo}</strong>
+                <p>{inc.detalle}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </main>
   );
