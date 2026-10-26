@@ -10,10 +10,7 @@ Este proyecto consiste en el maquetado estructural de un sistema web para la adm
 -> Emilio Bueno  
 -> Jonathan Nuñez  
 
-## Estado Hito 1:
-
-Boceto de página web en formato visual, hecha en HTML y CSS estático.  
-Todavia no se utilizara javascript.  
+### Links referidos a las paginas
 
 Links de las direcciones de las ip elástica:  
 http://100.61.52.146/  
@@ -22,6 +19,11 @@ http://50.19.1.95/
   
 Link de la presentación (PPT):  
 https://docs.google.com/presentation/d/1D7EpK1aJ9JGm6b6xIpXODZSz1Ec0XQ5V7QwzEllwjDA/edit?slide=id.p#slide=id.p  
+
+## Estado Hito 1:
+
+Boceto de página web en formato visual, hecha en HTML y CSS estático.  
+Todavia no se utilizara javascript.  
 
 ### Estructura de Páginas
 
