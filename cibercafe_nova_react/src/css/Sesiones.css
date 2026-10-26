@@ -21,7 +21,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem; 
 }
 
 .tarjeta-reserva-header {
@@ -33,7 +32,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .tabla-base {
@@ -52,7 +50,6 @@
   font-weight: 600;
   font-size: 0.95rem;
   color: #212529;
-  text-align: left; 
 }
 
 .tabla-base td {
@@ -71,7 +68,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
-
+  white-space: nowrap;
 }
 
 .badge-reserva {
@@ -84,37 +81,21 @@
   display: inline-block;
 }
 
-
-@media (max-width: 768px) { 
+/* Ajuste para evitar desbordes en celulares */
+@media (max-width: 576px) {
   .sesiones-container {
     padding: 1rem 0.5rem;
   }
 
-
   .tarjeta-sesion-header,
   .tarjeta-reserva-header {
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 0.8rem;
     font-size: 0.95rem;
-    flex-direction: column; 
-    align-items: flex-start;
-  }
-
-
-  .tabla-base {
-    display: block; 
-    overflow-x: auto; 
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
   }
 
   .tabla-base th,
   .tabla-base td {
-    padding: 0.65rem 0.75rem;
+    padding: 0.65rem 0.5rem;
     font-size: 0.85rem;
-  }
-
- 
-  .acciones-grupo {
-    flex-wrap: wrap; 
   }
 }

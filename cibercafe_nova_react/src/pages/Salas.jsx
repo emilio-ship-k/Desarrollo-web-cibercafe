@@ -13,7 +13,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
 
   const estadosDisponibles = [...new Set(listaPcs.map((pc) => pc.estado))];
 
- 
+  // Filtro simultaneo por buscador de texto, sala y estado
   const pcsFiltrados = listaPcs.filter((pc) => {
     const coincideTexto = pc.id.toLowerCase().includes(busqueda.trim().toLowerCase());
     const coincideEstado = filtroEstado === 'todos' || pc.estado === filtroEstado;
@@ -21,7 +21,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
     return coincideTexto && coincideEstado && coincideSala;
   });
 
-  
+  // Al hacer clic en un puesto verde, amarillo o rojo abrimos el modal
   const manejarClickPuesto = (pc) => {
     if (pc.estado === 'Fuera_de_servicio') {
       alert(`El ${pc.id} (${pc.sala}) se encuentra fuera de servicio por problemas técnicos.`);
@@ -30,7 +30,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
     setPcSeleccionado(pc);
   };
 
-  
+  // Confirmar reserva desde el modal recibiendo fecha y hora
   const guardarReserva = (pc, fecha, horaInicio, horaFin) => {
     const nuevoMotivo = `Reserva programada para el ${fecha} de ${horaInicio} a ${horaFin}`;
     cambiarEstadoPc(pc, 'Reservado', nuevoMotivo);
@@ -38,7 +38,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
     setPcSeleccionado(null);
   };
 
-  
+  // Abrir la ficha tecnica en detalles
   const abrirDetalles = (pc) => {
     if (setPcActual) {
       setPcActual({ id: pc.id, sala: pc.sala });
@@ -49,7 +49,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
     <main className="salas-container">
       <h2>Salas y computadores</h2>
 
-   
+      {/* Caja de filtros */}
       <div className="caja-filtros">
         <div className="barra-filtros">
           <input
@@ -75,7 +75,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
         </div>
       </div>
 
-
+      {/* Grilla dividida por sala */}
       {pcsFiltrados.length === 0 ? (
         <p>No se encontraron PCs con esos criterios.</p>
       ) : (
@@ -113,7 +113,7 @@ function Salas({ listaPcs, cambiarEstadoPc, setPcActual }) {
         })
       )}
 
-     
+      {/* Modal de reserva interactivo */}
       {pcSeleccionado && (
         <Modal_Reserva
           pc={pcSeleccionado}

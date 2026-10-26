@@ -77,16 +77,13 @@ function Sesiones() {
   };
 
   return (
-    <main className="sesiones-container container-fluid px-2 px-md-3">
-      
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4 mt-3">
+    <main className="sesiones-container">
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h2 className="fw-bold mb-1 fs-3">Gestión de Sesiones y Caja</h2>
-          <p className="text-secondary mb-0 small">Control de puestos activos, cobros y reservas en espera</p>
+          <h2 className="fw-bold mb-1">Gestión de Sesiones y Caja</h2>
+          <p className="text-secondary mb-0">Control de puestos activos, cobros y reservas en espera</p>
         </div>
-        <Link to="/panel" className="btn btn-outline-secondary btn-sm w-100 text-md-center" style={{ maxWidth: '200px' }}>
-          &lt; Volver al Panel
-        </Link>
+        <Link to="/panel" className="btn btn-outline-secondary btn-sm">&lt;- Volver al Panel</Link>
       </div>
 
       {mensajeAlerta && (
@@ -96,7 +93,6 @@ function Sesiones() {
         </div>
       )}
 
-
       {cobroPendiente && (
         <div className="card border-primary mb-4 shadow-sm">
           <div className="card-header bg-primary text-white fw-bold">Recibo de Cierre y Cobro Total</div>
@@ -104,25 +100,18 @@ function Sesiones() {
             <p className="mb-1"><strong>Equipo:</strong> {cobroPendiente.equipo}</p>
             <p className="mb-1"><strong>Cliente:</strong> {cobroPendiente.cliente}</p>
             <p className="mb-2"><strong>Tiempo registrado:</strong> {cobroPendiente.tiempoTexto}</p>
-            <h4 className="text-success fw-bold mb-4">Total a pagar: ${cobroPendiente.total.toLocaleString('es-CL')}</h4>
-            
-            <div className="d-flex flex-column flex-md-row gap-2">
-              <button type="button" className="btn btn-success fw-bold w-100 w-md-auto" onClick={confirmarCobro}>
-                Confirmar Pago y Liberar
-              </button>
-              <button type="button" className="btn btn-outline-secondary w-100 w-md-auto" onClick={() => setCobroPendiente(null)}>
-                Volver
-              </button>
+            <h4 className="text-success fw-bold mb-3">Total a pagar: ${cobroPendiente.total.toLocaleString('es-CL')}</h4>
+            <div className="d-flex gap-2">
+              <button type="button" className="btn btn-success fw-bold" onClick={confirmarCobro}>Confirmar Pago y Liberar Equipo</button>
+              <button type="button" className="btn btn-outline-secondary" onClick={() => setCobroPendiente(null)}>Volver</button>
             </div>
           </div>
         </div>
       )}
 
-      <div className="tarjeta-sesion shadow-sm border-0 rounded-3 mb-4">
-        <div className="tarjeta-sesion-header bg-light border-bottom p-3 fw-bold rounded-top">
-          Iniciar Nueva Sesión
-        </div>
-        <div className="p-3 p-md-4">
+      <div className="tarjeta-sesion">
+        <div className="tarjeta-sesion-header">Iniciar Nueva Sesión</div>
+        <div className="p-3">
           {errorValidacion && <div className="alert alert-danger py-2 px-3 small fw-semibold mb-3">{errorValidacion}</div>}
           <form onSubmit={registrarSesion}>
             <div className="row g-3 align-items-end">
@@ -143,13 +132,11 @@ function Sesiones() {
                   <option value="Pc 25 (Grupos)">Pc 25 (Grupos)</option>
                 </select>
               </div>
-              
               <div className="col-12 col-md-4">
                 <label className="form-label small fw-bold mb-1">Cliente:</label>
                 <input type="text" className="form-control form-control-sm" placeholder="Nombre del cliente..." value={nuevoCliente} onChange={(e) => setNuevoCliente(e.target.value)} />
               </div>
-              
-              <div className="col-12 col-sm-6 col-md-2">
+              <div className="col-6 col-md-2">
                 <label className="form-label small fw-bold mb-1">Horas:</label>
                 <select className="form-select form-select-sm" value={nuevasHoras} onChange={(e) => setNuevasHoras(e.target.value)}>
                   <option value={0.5}>0.5 hrs</option>
@@ -158,31 +145,22 @@ function Sesiones() {
                   <option value={2}>2.0 hrs</option>
                 </select>
               </div>
-              
-            
-              <div className="col-12 col-sm-6 col-md-2 d-flex mt-4 mt-md-0">
-                <button type="submit" className="btn btn-primary btn-sm fw-bold w-100">
-                  Iniciar Turno
-                </button>
+              <div className="col-6 col-md-2 d-grid">
+                <button type="submit" className="btn btn-primary btn-sm fw-bold">Iniciar Turno</button>
               </div>
             </div>
           </form>
         </div>
       </div>
 
-  
-      <div className="mb-4 table-responsive">
-        <TablaSesiones
-          sesiones={sesiones}
-          tarifaPorHora={tarifaPorHora}
-          onExtender={extenderTiempo}
-          onCobrar={prepararCobro}
-        />
-      </div>
+      <TablaSesiones
+        sesiones={sesiones}
+        tarifaPorHora={tarifaPorHora}
+        onExtender={extenderTiempo}
+        onCobrar={prepararCobro}
+      />
 
-      <div className="table-responsive">
-        <TablaReservasEspera reservas={proximasReservas} />
-      </div>
+      <TablaReservasEspera reservas={proximasReservas} />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logoImg from '../images/logo.png';
-import '../css/Sesiones.css';
+
 function Navbar({ usuario, setUsuario }) {
   const [mostrarLogin, setMostrarLogin] = useState(false);
   const [mostrarRegistro, setMostrarRegistro] = useState(false);

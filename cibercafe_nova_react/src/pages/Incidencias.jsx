@@ -84,7 +84,7 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
     if (incidencia) {
       if (cambiarEstadoPc) {
         cambiarEstadoPc(
-          { id: incidencia.pcId, pcSala: incidencia.pcSala },
+          { id: incidencia.pcId, sala: incidencia.pcSala },
           'Disponible',
           'Equipo libre y operativo'
         );
@@ -94,15 +94,14 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
   };
 
   return (
-    <main className="sesiones-container container-fluid px-2 px-md-3">
-      {/* Ajuste responsive para el encabezado: en móvil se apila, en PC se pone en fila */}
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4 mt-3">
+    <main className="sesiones-container">
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h2 className="fw-bold mb-1 fs-3">Registro de Incidencias y Fallas</h2>
-          <p className="text-secondary mb-0 small">Control de mantenimiento técnico y problemas de equipos</p>
+          <h2 className="fw-bold mb-1">Registro de Incidencias y Fallas</h2>
+          <p className="text-secondary mb-0">Control de mantenimiento técnico y problemas de equipos</p>
         </div>
-        <Link to="/panel" className="btn btn-outline-secondary btn-sm w-100 text-md-center" style={{ maxWidth: '200px' }}>
-          &lt; Volver al Panel
+        <Link to="/panel" className="btn btn-outline-secondary btn-sm">
+          &lt;- Volver al Panel
         </Link>
       </div>
 
@@ -113,18 +112,17 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
         </div>
       )}
 
-      <div className="tarjeta-sesion shadow-sm border-0 rounded-3 mb-4">
-        <div className="tarjeta-sesion-header bg-light border-bottom p-3 fw-bold rounded-top">
+      <div className="tarjeta-sesion">
+        <div className="tarjeta-sesion-header">
           Reportar Nueva Falla
         </div>
-        <div className="p-3 p-md-4">
+        <div className="p-3">
           {errorValidacion && (
             <div className="alert alert-danger py-2 px-3 small fw-semibold mb-3">
               {errorValidacion}
             </div>
           )}
           <form onSubmit={registrarIncidencia}>
-            {/* Ajuste g-3 para espaciado en móviles */}
             <div className="row g-3 align-items-end">
               <div className="col-12 col-md-3">
                 <label className="form-label small fw-bold mb-1">Puesto afectado:</label>
@@ -145,7 +143,7 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
                 </select>
               </div>
 
-              <div className="col-12 col-sm-6 col-md-3">
+              <div className="col-6 col-md-3">
                 <label className="form-label small fw-bold mb-1">Tipo de problema:</label>
                 <select
                   className="form-select form-select-sm"
@@ -159,7 +157,7 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
                 </select>
               </div>
 
-              <div className="col-12 col-sm-6 col-md-2">
+              <div className="col-6 col-md-2">
                 <label className="form-label small fw-bold mb-1">Prioridad:</label>
                 <select
                   className="form-select form-select-sm"
@@ -183,9 +181,8 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
                 />
               </div>
 
-              {/* Botón adaptado a móvil (ancho completo) y escritorio (alineado a la derecha) */}
-              <div className="col-12 d-flex justify-content-end mt-4">
-                <button type="submit" className="btn btn-danger btn-sm fw-bold px-4 w-100 w-md-auto">
+              <div className="col-12 d-flex justify-content-end">
+                <button type="submit" className="btn btn-danger btn-sm fw-bold px-4">
                   Reportar Incidencia
                 </button>
               </div>
@@ -194,9 +191,7 @@ function Incidencias({ listaPcs = [], cambiarEstadoPc }) {
         </div>
       </div>
 
-      <div className="table-responsive">
-        <TablaIncidencias incidencias={incidencias} onResolver={marcarResuelta} />
-      </div>
+      <TablaIncidencias incidencias={incidencias} onResolver={marcarResuelta} />
     </main>
   );
 }

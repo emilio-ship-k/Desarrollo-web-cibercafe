@@ -5,7 +5,7 @@
     font-family: 'system-ui', sans-serif;
 }
 
-
+/* Contenedor principal de la vista */
 .salas-container {
     padding: 20px 20px 60px;
     max-width: 1100px;
@@ -21,7 +21,7 @@
     text-align: left;
 }
 
-
+/* Caja superior de filtros */
 .caja-filtros {
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -51,7 +51,7 @@
     min-width: 180px;
 }
 
-
+/* Bloques por cada sala */
 .sala-bloque {
     margin-bottom: 2rem;
     text-align: left;
@@ -66,7 +66,7 @@
     color: #333333;
 }
 
-
+/* Grilla de computadores */
 .grilla-pcs {
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +74,7 @@
     margin-top: 10px;
 }
 
-
+/* Contenedor de cada puesto y su enlace */
 .tarjeta-puesto-contenedor {
     display: flex;
     flex-direction: column;
@@ -82,7 +82,7 @@
     gap: 5px;
 }
 
-
+/* Recuadro del computador */
 .puesto {
     width: 80px;
     height: 56px;
@@ -103,7 +103,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Colores de estado del equipo */
 .pc-Disponible {
     background-color: #2ecc71;
     cursor: pointer;
@@ -126,7 +126,7 @@
     opacity: 0.75;
 }
 
-
+/* Enlace a ficha tecnica en detalles */
 .link-detalle-puesto {
     font-size: 11px;
     font-weight: 600;
@@ -140,7 +140,7 @@
     color: #1677F2;
 }
 
-
+/* Ajustes responsivos para celulares (390 px) y tablets (768 px) */
 @media (max-width: 600px) {
     .salas-container {
         padding: 15px 12px 40px;

@@ -4,6 +4,7 @@ import TablaReservas from '../components/TablaReservas';
 import '../css/Sesiones.css';
 
 function Reservas() {
+  // Reservas iniciales coincidentes con Operativos (PC-08 y PC-19)
   const [reservas, setReservas] = useState([
     {
       id: 101,
@@ -88,15 +89,14 @@ function Reservas() {
   };
 
   return (
-    <main className="sesiones-container container-fluid px-2 px-md-3">
-   
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4 mt-3">
+    <main className="sesiones-container">
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h2 className="fw-bold mb-1 fs-3">Reserva de Puestos</h2>
-          <p className="text-secondary mb-0 small">Agendamiento de computadores y control de turnos</p>
+          <h2 className="fw-bold mb-1">Reserva de Puestos</h2>
+          <p className="text-secondary mb-0">Agendamiento de computadores y control de turnos</p>
         </div>
-        <Link to="/panel" className="btn btn-outline-secondary btn-sm w-100 text-md-center" style={{ maxWidth: '200px' }}>
-          &lt; Volver al Panel
+        <Link to="/panel" className="btn btn-outline-secondary btn-sm">
+          &lt;- Volver al Panel
         </Link>
       </div>
 
@@ -107,11 +107,11 @@ function Reservas() {
         </div>
       )}
 
-      <div className="tarjeta-sesion shadow-sm border-0 rounded-3 mb-4">
-        <div className="tarjeta-sesion-header bg-light border-bottom p-3 fw-bold rounded-top">
+      <div className="tarjeta-sesion">
+        <div className="tarjeta-sesion-header">
           Agendar Nueva Reserva
         </div>
-        <div className="p-3 p-md-4">
+        <div className="p-3">
           {errorValidacion && (
             <div className="alert alert-danger py-2 px-3 small fw-semibold mb-3">
               {errorValidacion}
@@ -156,7 +156,7 @@ function Reservas() {
                 />
               </div>
 
-              <div className="col-12 col-sm-4 col-md-2">
+              <div className="col-6 col-md-2">
                 <label className="form-label small fw-bold mb-1">Fecha:</label>
                 <input
                   type="date"
@@ -166,7 +166,7 @@ function Reservas() {
                 />
               </div>
 
-              <div className="col-6 col-sm-4 col-md-2">
+              <div className="col-3 col-md-2">
                 <label className="form-label small fw-bold mb-1">Desde:</label>
                 <input
                   type="time"
@@ -176,7 +176,7 @@ function Reservas() {
                 />
               </div>
 
-              <div className="col-6 col-sm-4 col-md-2">
+              <div className="col-3 col-md-2">
                 <label className="form-label small fw-bold mb-1">Hasta:</label>
                 <input
                   type="time"
@@ -186,8 +186,8 @@ function Reservas() {
                 />
               </div>
 
-              <div className="col-12 d-flex justify-content-end mt-4">
-                <button type="submit" className="btn btn-primary btn-sm fw-bold px-4 w-100 w-md-auto">
+              <div className="col-12 d-flex justify-content-end">
+                <button type="submit" className="btn btn-primary btn-sm fw-bold px-4">
                   Reservar
                 </button>
               </div>
@@ -196,14 +196,11 @@ function Reservas() {
         </div>
       </div>
 
- 
-      <div className="table-responsive">
-        <TablaReservas
-          reservas={reservas}
-          onConfirmar={confirmarReserva}
-          onCancelar={cancelarReserva}
-        />
-      </div>
+      <TablaReservas
+        reservas={reservas}
+        onConfirmar={confirmarReserva}
+        onCancelar={cancelarReserva}
+      />
     </main>
   );
 }
