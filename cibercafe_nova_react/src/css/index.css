@@ -577,3 +577,24 @@ footer p a {
         gap: 10px;
     }
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#root {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.barra,
+footer {
+    width: 100%;
+}

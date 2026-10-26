@@ -99,3 +99,26 @@
     font-size: 0.85rem;
   }
 }
+
+@media (max-width: 768px) {
+  /* ...lo demás se mantiene igual... */
+
+  .tarjeta-sesion .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabla-base {
+    min-width: 640px; /* la tabla se desplaza dentro de la tarjeta, no la página */
+  }
+
+  .tabla-base th,
+  .tabla-base td {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .acciones-grupo {
+    flex-wrap: wrap;
+  }
+}
