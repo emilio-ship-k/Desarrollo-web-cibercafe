@@ -20,6 +20,9 @@ http://50.19.1.95/
 Link de la presentación (PPT):  
 https://docs.google.com/presentation/d/1D7EpK1aJ9JGm6b6xIpXODZSz1Ec0XQ5V7QwzEllwjDA/edit?slide=id.p#slide=id.p  
 
+Link github:
+https://github.com/emilio-ship-k/Desarrollo-web-cibercafe.git
+
 ## Estado Hito 1:
 
 Boceto de página web en formato visual, hecha en HTML y CSS estático.  
