@@ -1,0 +1,10 @@
+import mongoose from 'mongoose';
+
+const salaSchema = new mongoose.Schema( {
+    nombre: { type: String, required: true, unique: true, trim: true },
+    descripcion: { type: String, default: '' },
+},
+    { timestamps: true }
+);
+
+export default mongoose.model('Sala', salaSchema);
