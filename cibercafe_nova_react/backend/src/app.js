@@ -5,6 +5,8 @@ import salaRoutes from './routes/salaRoutes.js';
 import computadorRoutes from './routes/computadorRoutes.js';
 import tarifaRoutes from './routes/tarifaRoutes.js';
 import incidenciaRoutes from './routes/incidenciaRoutes.js';
+import reservaRoutes from './routes/reservaRoutes.js';
+import clienteRoutes from './routes/clienteRoutes.js';
 
 
 const app = express();
@@ -28,6 +30,10 @@ app.use('/api/tarifas', tarifaRoutes);
 // Incidencias (solo operador y administrador)
 app.use('/api/incidencias', incidenciaRoutes);
 
+
+// Reservas (todos los roles con sesión) y clientes (solo operador y administrador)
+app.use('/api/reservas', reservaRoutes);
+app.use('/api/clientes', clienteRoutes);
 
 // Ruta no encontrada
 app.use((req, res) => {
