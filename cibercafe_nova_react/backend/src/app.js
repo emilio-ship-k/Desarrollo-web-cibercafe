@@ -4,6 +4,8 @@ import authRoutes from './routes/authRoutes.js';
 import salaRoutes from './routes/salaRoutes.js';
 import computadorRoutes from './routes/computadorRoutes.js';
 import tarifaRoutes from './routes/tarifaRoutes.js';
+import incidenciaRoutes from './routes/incidenciaRoutes.js';
+
 
 const app = express();
 
@@ -22,6 +24,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/salas', salaRoutes);
 app.use('/api/computadores', computadorRoutes);
 app.use('/api/tarifas', tarifaRoutes);
+
+// Incidencias (solo operador y administrador)
+app.use('/api/incidencias', incidenciaRoutes);
+
 
 // Ruta no encontrada
 app.use((req, res) => {
