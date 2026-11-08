@@ -1,11 +1,15 @@
 import mongoose from 'mongoose';
 
-const sesionSchema = new mongoose.Schema( {
+const sesionSchema = new mongoose.Schema(
+{
     cliente: { type: mongoose.Schema.Types.ObjectId, ref: 'Cliente', required: true },
     computador: { type: mongoose.Schema.Types.ObjectId, ref: 'Computador', required: true },
     operador: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario', required: true },
     reserva: { type: mongoose.Schema.Types.ObjectId, ref: 'Reserva', default: null },
     inicio: { type: Date, required: true },
+    // Hasta cuándo está prevista la sesión. Se amplía al extenderla.
+    finPrevisto: { type: Date, required: true },
+    // Cuándo terminó realmente. Es null mientras la sesión está activa.
     fin: { type: Date, default: null },
     duracionMin: { type: Number, default: 0 },
     // Se guarda el precio por hora usado, para que un cambio de tarifa no altere cobros antiguos
