@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 
@@ -10,6 +11,9 @@ app.use(express.json());
 app.get('/api/health', (req, res) => {
     res.json({ ok: true, servicio: 'Cibercafé Nova API' });
 });
+
+// Autenticación /api/auth/registro o login o perfil
+app.use('/api/auth', authRoutes);
 
 // Las rutas lo agregare despues.
 

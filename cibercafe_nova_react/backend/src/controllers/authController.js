@@ -16,7 +16,7 @@ function datosPublicos(usuario) {
 export async function registrar(req, res) {
   try {
     const { nombre, email, password } = req.body;
- 
+
     if (!nombre?.trim() || !email?.trim() || !password) {
       return res.status(400).json({ mensaje: 'Nombre, correo y contraseña son obligatorios' });
     }
@@ -60,7 +60,7 @@ export async function registrar(req, res) {
 export async function login(req, res) {
   try {
     const { email, password } = req.body;
- 
+
     if (!email?.trim() || !password) {
       return res.status(400).json({ mensaje: 'Correo y contraseña son obligatorios' });
     }
@@ -95,19 +95,19 @@ export async function login(req, res) {
       await usuario.save();
       return res.status(401).json({ mensaje: mensajeCredenciales });
     }
- 
+
     // Login correcto: se limpia el control de intentos
     usuario.intentosFallidos = 0;
     usuario.bloqueadoHasta = null;
     await usuario.save();
- 
+
     res.json({ token: crearToken(usuario), usuario: datosPublicos(usuario) });
   } catch (error) {
     console.error('Error en login:', error.message);
     res.status(500).json({ mensaje: 'No se pudo iniciar sesión. Intenta nuevamente' });
   }
 }
- 
+
 // Datos de quien tiene la sesión iniciada
 export async function perfil(req, res) {
   try {
