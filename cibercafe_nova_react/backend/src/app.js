@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
+import salaRoutes from './routes/salaRoutes.js';
+import computadorRoutes from './routes/computadorRoutes.js';
+import tarifaRoutes from './routes/tarifaRoutes.js';
 
 const app = express();
 
@@ -15,7 +18,10 @@ app.get('/api/health', (req, res) => {
 // Autenticación /api/auth/registro o login o perfil
 app.use('/api/auth', authRoutes);
 
-// Las rutas lo agregare despues.
+// Salas, computadores y tarifas
+app.use('/api/salas', salaRoutes);
+app.use('/api/computadores', computadorRoutes);
+app.use('/api/tarifas', tarifaRoutes);
 
 // Ruta no encontrada
 app.use((req, res) => {

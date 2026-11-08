@@ -1,4 +1,3 @@
-
 import { Router } from 'express';
 import { registrar, login, perfil } from '../controllers/authController.js';
 import { autenticar } from '../middleware/auth.js';
