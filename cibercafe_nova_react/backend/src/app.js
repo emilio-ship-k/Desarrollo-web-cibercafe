@@ -8,7 +8,8 @@ import incidenciaRoutes from './routes/incidenciaRoutes.js';
 import reservaRoutes from './routes/reservaRoutes.js';
 import clienteRoutes from './routes/clienteRoutes.js';
 import sesionRoutes from './routes/sesionRoutes.js';
-
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import historialRoutes from './routes/historialRoutes.js';
 
 
 const app = express();
@@ -39,6 +40,12 @@ app.use('/api/clientes', clienteRoutes);
 
 // Sesiones de uso (consultar: todos los roles; operar: operador y administrador)
 app.use('/api/sesiones', sesionRoutes);
+
+// Gestión de usuarios (solo administrador)
+app.use('/api/usuarios', usuarioRoutes);
+
+// Historial general (solo administrador)
+app.use('/api/historial', historialRoutes);
 
 // Ruta no encontrada
 app.use((req, res) => {
