@@ -4,6 +4,7 @@ import Sala from '../models/Sala.js';
 import Reserva from '../models/Reserva.js';
 import Incidencia from '../models/Incidencia.js';
 import { aplicarEstadoEfectivo } from '../utils/disponibilidad.js';
+import { registrarHistorial } from '../utils/historial.js';
 
 // Lista los PCs. Los filtros son opcionales y se pueden combinar.
 export async function listarComputadores(req, res) {
@@ -86,7 +87,9 @@ try {
     if (!TIPOS_PUESTO.includes(tipoPuesto)) {
         return res.status(400).json({ mensaje: `Tipo de puesto inválido. Usa: ${TIPOS_PUESTO.join(', ')}` });
     }
-    if (!mongoose.isValidObjectId(sala) || !(await Sala.exists({ _id: sala }))) {
+    // Se busca la sala completa (no solo si existe) para poder escribir su nombre en el historial
+    const salaDoc = mongoose.isValidObjectId(sala) ? await Sala.findById(sala) : null;
+    if (!salaDoc) {
         return res.status(400).json({ mensaje: 'La sala indicada no existe' });
     }
     if (await Computador.findOne({ codigo })) {
@@ -95,6 +98,15 @@ try {
 
     // El estado NO se toma de la petición: todo PC nuevo parte como Disponible
     const computador = await Computador.create({ codigo, nombre, sala, tipoPuesto, hardware });
+
+    await registrarHistorial({
+        entidad: 'Computador',
+        entidadId: computador._id,
+        accion: 'crear',
+        usuario: req.usuario.id,
+        detalle: `${codigo} en ${salaDoc.nombre} (${tipoPuesto})`,
+    });
+
     res.status(201).json({ computador });
 } catch (error) {
     console.error('Error al crear computador:', error.message);
@@ -118,29 +130,58 @@ try {
 
     const { nombre, sala, tipoPuesto, hardware } = req.body;
 
+    // Aquí se anota cada campo que realmente cambió, para dejarlo en el historial
+    const cambios = [];
+
     if (nombre !== undefined) {
     if (!nombre.trim()) {
         return res.status(400).json({ mensaje: 'El nombre no puede quedar vacío' });
     }
-    computador.nombre = nombre.trim();
+    if (nombre.trim() !== computador.nombre) {
+        cambios.push(`nombre: "${computador.nombre}" -> "${nombre.trim()}"`);
+        computador.nombre = nombre.trim();
+    }
     }
     if (sala !== undefined) {
-    if (!mongoose.isValidObjectId(sala) || !(await Sala.exists({ _id: sala }))) {
+    const salaNueva = mongoose.isValidObjectId(sala) ? await Sala.findById(sala) : null;
+    if (!salaNueva) {
         return res.status(400).json({ mensaje: 'La sala indicada no existe' });
     }
-    computador.sala = sala;
+    if (!salaNueva._id.equals(computador.sala)) {
+        // Se busca el nombre de la sala anterior para que el historial sea legible
+        const salaAnterior = await Sala.findById(computador.sala);
+        cambios.push(`sala: ${salaAnterior?.nombre ?? 'desconocida'} -> ${salaNueva.nombre}`);
+        computador.sala = salaNueva._id;
+    }
     }
     if (tipoPuesto !== undefined) {
     if (!TIPOS_PUESTO.includes(tipoPuesto)) {
         return res.status(400).json({ mensaje: `Tipo de puesto inválido. Usa: ${TIPOS_PUESTO.join(', ')}` });
     }
-    computador.tipoPuesto = tipoPuesto;
+    if (tipoPuesto !== computador.tipoPuesto) {
+        cambios.push(`tipo: ${computador.tipoPuesto} -> ${tipoPuesto}`);
+        computador.tipoPuesto = tipoPuesto;
+    }
     }
     if (hardware !== undefined) {
-    computador.hardware = hardware.trim();
+    if (hardware.trim() !== computador.hardware) {
+        cambios.push('hardware actualizado');
+        computador.hardware = hardware.trim();
+    }
     }
 
-    await computador.save();
+    // Si no cambió nada, no se guarda ni se ensucia el historial
+    if (cambios.length > 0) {
+        await computador.save();
+        await registrarHistorial({
+            entidad: 'Computador',
+            entidadId: computador._id,
+            accion: 'editar',
+            usuario: req.usuario.id,
+            detalle: `${computador.codigo}: ${cambios.join('; ')}`,
+        });
+    }
+
     res.json({ computador });
 } catch (error) {
     console.error('Error al editar computador:', error.message);

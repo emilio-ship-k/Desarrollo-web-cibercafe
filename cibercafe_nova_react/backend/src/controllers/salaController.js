@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import Sala from '../models/Sala.js';
+import { registrarHistorial } from '../utils/historial.js';
 
 // Busca otra sala con el mismo nombre, sin distinguir mayúsculas
 function buscarPorNombre(nombre, excluirId = null) {
@@ -26,13 +27,22 @@ export async function crearSala(req, res) {
         const descripcion = req.body.descripcion?.trim() || '';
 
         if (!nombre) {
-        return res.status(400).json({ mensaje: 'El nombre de la sala es obligatorio' });
+            return res.status(400).json({ mensaje: 'El nombre de la sala es obligatorio' });
         }
         if (await buscarPorNombre(nombre)) {
-        return res.status(409).json({ mensaje: 'Ya existe una sala con ese nombre' });
+            return res.status(409).json({ mensaje: 'Ya existe una sala con ese nombre' });
         }
 
         const sala = await Sala.create({ nombre, descripcion });
+
+        await registrarHistorial({
+            entidad: 'Sala',
+            entidadId: sala._id,
+            accion: 'crear',
+            usuario: req.usuario.id,
+            detalle: sala.nombre,
+        });
+
         res.status(201).json({ sala });
     } catch (error) {
         console.error('Error al crear sala:', error.message);
@@ -45,30 +55,50 @@ export async function editarSala(req, res) {
     try {
         const { id } = req.params;
         if (!mongoose.isValidObjectId(id)) {
-        return res.status(400).json({ mensaje: 'El identificador de la sala no es válido' });
+            return res.status(400).json({ mensaje: 'El identificador de la sala no es válido' });
         }
 
         const sala = await Sala.findById(id);
         if (!sala) {
-        return res.status(404).json({ mensaje: 'Sala no encontrada' });
-    }
+            return res.status(404).json({ mensaje: 'Sala no encontrada' });
+        }
 
-    // Solo se cambian los campos que vengan en la petición
+        const cambios = [];
+
+        // Solo se cambian los campos que vengan en la petición
         if (req.body.nombre !== undefined) {
-        const nombre = req.body.nombre.trim();
-        if (!nombre) {
-            return res.status(400).json({ mensaje: 'El nombre de la sala no puede quedar vacío' });
-        }
-        if (await buscarPorNombre(nombre, sala._id)) {
-            return res.status(409).json({ mensaje: 'Ya existe otra sala con ese nombre' });
-        }
-        sala.nombre = nombre;
+            const nombre = req.body.nombre.trim();
+            if (!nombre) {
+                return res.status(400).json({ mensaje: 'El nombre de la sala no puede quedar vacío' });
+            }
+            if (await buscarPorNombre(nombre, sala._id)) {
+                return res.status(409).json({ mensaje: 'Ya existe otra sala con ese nombre' });
+            }
+            if (nombre !== sala.nombre) {
+                cambios.push(`nombre: "${sala.nombre}" -> "${nombre}"`);
+                sala.nombre = nombre;
+            }
         }
         if (req.body.descripcion !== undefined) {
-        sala.descripcion = req.body.descripcion.trim();
-    }
+            const descripcion = req.body.descripcion.trim();
+            if (descripcion !== sala.descripcion) {
+                cambios.push('descripción actualizada');
+                sala.descripcion = descripcion;
+            }
+        }
 
-        await sala.save();
+        // Si no cambió nada, no se guarda ni se ensucia el historial
+        if (cambios.length > 0) {
+            await sala.save();
+            await registrarHistorial({
+                entidad: 'Sala',
+                entidadId: sala._id,
+                accion: 'editar',
+                usuario: req.usuario.id,
+                detalle: `${sala.nombre}: ${cambios.join('; ')}`,
+            });
+        }
+
         res.json({ sala });
     } catch (error) {
         console.error('Error al editar sala:', error.message);

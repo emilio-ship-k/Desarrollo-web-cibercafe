@@ -10,6 +10,7 @@ import clienteRoutes from './routes/clienteRoutes.js';
 import sesionRoutes from './routes/sesionRoutes.js';
 import usuarioRoutes from './routes/usuarioRoutes.js';
 import historialRoutes from './routes/historialRoutes.js';
+import resumenRoutes from './routes/resumenRoutes.js';
 
 
 const app = express();
@@ -46,6 +47,9 @@ app.use('/api/usuarios', usuarioRoutes);
 
 // Historial general (solo administrador)
 app.use('/api/historial', historialRoutes);
+
+// Resumen de uso, ingresos e incidencias por periodo (solo administrador)
+app.use('/api/resumen', resumenRoutes);
 
 // Ruta no encontrada
 app.use((req, res) => {
