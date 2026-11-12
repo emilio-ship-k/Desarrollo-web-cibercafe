@@ -12,25 +12,66 @@ function Navbar({ usuario, setUsuario }) {
   const [rol, setRol] = useState('cliente');
   const [terms, setTerms] = useState(false);
 
-  const manejarIngreso = (e) => {
+  const manejarRegistro = async (e) => {
     e.preventDefault();
-    setUsuario({ user: user || email.split('@')[0], email, rol });
-    setMostrarLogin(false);
+    
+    try {
+      const respuesta = await fetch('http://localhost:4000/api/auth/registro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+       
+        body: JSON.stringify({ nombre: user, email, password, rol }) 
+      });
+
+      const data = await respuesta.json();
+
+      if (respuesta.ok) {
+        alert(' Registro exitoso Por favor, inicia sesión.');
+        setMostrarRegistro(false);
+        setPassword('');
+        setMostrarLogin(true);
+      } else {
+        alert(`Error al registrar: ${data.error || data.mensaje}`);
+      }
+    } catch (error) {
+      console.error("Error de conexión:", error);
+      alert("Error de conexión con el servidor. Intenta de nuevo.");
+    }
   };
 
-  const manejarRegistro = (e) => {
+  const manejarIngreso = async (e) => {
     e.preventDefault();
-    console.log("Guardando en BD:", { user, email, password, rol }); 
     
-    setMostrarRegistro(false);
-    alert('¡Registro exitoso! Por favor, inicia sesión.');
-    
-    
-    setPassword('');
-    setMostrarLogin(true);
+    try {
+      const respuesta = await fetch('http://localhost:4000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await respuesta.json();
+
+      if (respuesta.ok) {
+        
+        localStorage.setItem('token', data.token);
+        
+        setUsuario({ ...data.usuario, user: data.usuario.nombre });
+        
+        setMostrarLogin(false);
+        setPassword(''); 
+      } else {
+        alert(`Fallo al iniciar sesión: ${data.error || data.mensaje}`);
+      }
+    } catch (error) {
+      console.error("Error de conexión:", error);
+      alert("Error de conexión con el servidor. Verifica que el backend esté encendido.");
+    }
   };
 
   const cerrarSesion = () => {
+    
+    localStorage.removeItem('token');
+    
     setUsuario(null);
     setUser('');
     setEmail('');
