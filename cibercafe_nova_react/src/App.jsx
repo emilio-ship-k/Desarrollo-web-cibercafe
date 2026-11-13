@@ -105,13 +105,46 @@ function App() {
       <Navbar usuario={usuario} setUsuario={setUsuario} />
 
       <Routes>
+        {/* Ruta publicas*/}
         <Route path="/" element={<Home />} />
-        <Route path="/detalles" element={<Detalles equipo={equipoSeleccionado} cambiarEstadoPc={cambiarEstadoPc} />} />
-        <Route path="/salas" element={<Salas listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} setPcActual={setPcActual} />} />
-        <Route path="/sesiones" element={<Sesiones />} />
-        <Route path="/reservas" element={<Reservas listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} />} />
-        <Route path="/incidencias" element={<Incidencias listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} />} />
-        <Route path="/panel" element={<Panel setPcActual={setPcActual} />} />
+        
+        <Route path="/salas" element={
+          <Salas listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} setPcActual={setPcActual} />
+        } />
+
+        {/*CLIENTE Y OPERADO*/}
+        <Route path="/reservas" element={
+          <ProtecionRutas usuario={usuario} rolesPermitidos={['cliente', 'operador']}>
+            <Reservas listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} />
+          </ProtecionRutas>
+        } />
+
+        {/* operador Y administrador */}
+        <Route path="/panel" element={
+          <ProtecionRutas usuario={usuario} rolesPermitidos={['operador', 'administrador']}>
+             <Panel setPcActual={setPcActual} />
+          </ProtecionRutas>
+        } />
+        
+        <Route path="/detalles" element={
+          <ProtecionRutas usuario={usuario} rolesPermitidos={['operador', 'administrador']}>
+            <Detalles equipo={equipoSeleccionado} cambiarEstadoPc={cambiarEstadoPc} />
+          </ProtecionRutas>
+        } />
+
+        {/*ruta de OPERADOR */}
+        <Route path="/sesiones" element={
+          <ProtecionRutas usuario={usuario} rolesPermitidos={['operador']}>
+            <Sesiones />
+          </ProtecionRutas>
+        } />
+
+        <Route path="/incidencias" element={
+          <ProtecionRutas usuario={usuario} rolesPermitidos={['operador']}>
+            <Incidencias listaPcs={listaPcs} cambiarEstadoPc={cambiarEstadoPc} />
+          </ProtecionRutas>
+        } />
+
       </Routes>
 
       <Footer />
